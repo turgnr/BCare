@@ -1,0 +1,26 @@
+.vscode
+client/.expo-shared
+#client files
+client/node_modules
+client/.expo/web
+client/packager-info.json
+client/npm-debug.*
+client/*.jks
+client/gen
+client/run-android
+client/*.p8
+client/*.p12
+client/*.key
+client/*.mobileprovision
+client/*.orig.*
+client/web-build/
+.idea
+client/.idea
+
+# macOS
+client/.DS_Store
+
+
+# server files
+server/nodemon.json
+server/node_modules
