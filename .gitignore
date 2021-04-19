@@ -16,7 +16,7 @@ client/*.orig.*
 client/web-build/
 .idea
 client/.idea
-
+client/.expo/packager-info.json
 # macOS
 client/.DS_Store
 
