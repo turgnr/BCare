@@ -10,12 +10,12 @@ export default function Login({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <TextInput
-        label="user name"
+        label="שם משתמש"
         value={user}
         onChangeText={(user) => setuserName(user)}
       />
       <TextInput
-        label="password"
+        label="סיסמא"
         Type="outline"
         value={password}
         onChangeText={(password) => setPass(password)}
@@ -29,7 +29,7 @@ export default function Login({ navigation }) {
           });
         }}
       >
-        Login
+        התחברות
       </Button>
       <Button
         icon="offine_bolt"
@@ -38,7 +38,7 @@ export default function Login({ navigation }) {
           navigation.navigate("RegisterPage");
         }}
       >
-        Register
+        הרשמה
       </Button>
       <Button
         icon="offine_bolt"
@@ -64,7 +64,7 @@ export default function Login({ navigation }) {
             });
         }}
       >
-        to SERVER
+        בדיקת שרת
       </Button>
     </SafeAreaView>
   );

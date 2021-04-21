@@ -62,19 +62,19 @@ export default function RegisterPage({ navigation }) {
   const handleSubmitButton = () => {
     setErrortext("");
     if (!userName) {
-      alert("Please fill Name");
+      alert("שם משתמש חסר");
       return;
     }
     if (!userEmail) {
-      alert("Please fill Email");
+      alert("אימייל חסר");
       return;
     }
     if (!userAge) {
-      alert("Please fill Age");
+      alert("גיל חסר");
       return;
     }
     if (!userAddress) {
-      alert("Please fill Address");
+      alert("כתובת חסרה");
       return;
     }
     //Show Loader
@@ -109,9 +109,9 @@ export default function RegisterPage({ navigation }) {
         // If server response message same as Data Matched
         if (responseJson.status == 1) {
           setIsRegistraionSuccess(true);
-          console.log("Registration Successful. Please Login to proceed");
+          console.log("הרשמה נקלטה בהצלחה אנא עבור למסך ההתחברות");
         } else {
-          setErrortext("Registration Unsuccessful");
+          setErrortext("ההרשמה נכשלה");
         }
       })
       .catch((error) => {
@@ -169,7 +169,7 @@ export default function RegisterPage({ navigation }) {
               style={styles.inputStyle}
               onChangeText={(UserName) => setUserName(UserName)}
               underlineColorAndroid="#f000"
-              placeholder="Enter Name"
+              placeholder="שם משתמש"
               placeholderTextColor="#8b9cb5"
               autoCapitalize="sentences"
               returnKeyType="next"
@@ -184,7 +184,7 @@ export default function RegisterPage({ navigation }) {
                     flagError = true;
                   }
                 });
-                setErrortext(flagError ? "change user name" : "");
+                setErrortext(flagError ? "שם משתמש תפוס" : "");
               }}
             />
           </View>
@@ -193,7 +193,7 @@ export default function RegisterPage({ navigation }) {
               style={styles.inputStyle}
               onChangeText={(UserEmail) => setUserEmail(UserEmail)}
               underlineColorAndroid="#f000"
-              placeholder="Enter Email"
+              placeholder="הכנס כתובת מייל"
               placeholderTextColor="#8b9cb5"
               keyboardType="email-address"
               ref={emailInputRef}
@@ -209,7 +209,7 @@ export default function RegisterPage({ navigation }) {
               style={styles.inputStyle}
               onChangeText={(UserAge) => setUserAge(UserAge)}
               underlineColorAndroid="#f000"
-              placeholder="Enter Age"
+              placeholder="הכנס גיל"
               placeholderTextColor="#8b9cb5"
               keyboardType="numeric"
               ref={ageInputRef}
@@ -234,7 +234,7 @@ export default function RegisterPage({ navigation }) {
             >
               {location != null ?
               (<Marker
-                title="address"
+                title="כתובתך"
                 coordinate={{
                   latitude: location.longitude ? location.latitude : 31.652,
                   longitude: location.longitude ? location.longitude : 34.7411,
@@ -264,7 +264,7 @@ export default function RegisterPage({ navigation }) {
             onPress={handleSubmitButton}
             disabled={errortext != ""}
           >
-            <Text style={styles.buttonTextStyle}>REGISTER</Text>
+            <Text style={styles.buttonTextStyle}>הרשמה</Text>
           </TouchableOpacity>
         </KeyboardAvoidingView>
       </ScrollView>

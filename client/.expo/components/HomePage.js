@@ -10,9 +10,9 @@ import {
 import { Button } from "react-native-paper";
 
 export default function HomePage({ navigation, route }) {
-  const { a, b } = route.params;
+  const { a } = route.params;
   const [Nid, setid] = useState(a);
-  const [Npass, setpass] = useState(b);
+
 
   return (
     <SafeAreaView style={styles.container}>
@@ -22,7 +22,7 @@ export default function HomePage({ navigation, route }) {
           mode="contained"
           onPress={() => navigation.navigate("infoPage")}
         >
-          info screen
+          מידע
         </Button>
       </SafeAreaView>
       <SafeAreaView>
@@ -31,7 +31,7 @@ export default function HomePage({ navigation, route }) {
           mode="contained"
           onPress={() => navigation.navigate("QuestionPage")}
         >
-          question screen
+          שאלון 
         </Button>
       </SafeAreaView>
       <SafeAreaView>
@@ -40,7 +40,7 @@ export default function HomePage({ navigation, route }) {
           mode="contained"
           onPress={() => navigation.navigate("xPage")}
         >
-          X screen
+          אודות
         </Button>
       </SafeAreaView>
       <SafeAreaView>
@@ -49,11 +49,11 @@ export default function HomePage({ navigation, route }) {
           mode="contained"
           onPress={() => navigation.navigate("tablePage")}
         >
-          table screen
+          רשימת עמותות
         </Button>
       </SafeAreaView>
       <Text>
-        Hello {Nid} your pass is :{Npass}
+         {Nid} שלום
       </Text>
     </SafeAreaView>
   );

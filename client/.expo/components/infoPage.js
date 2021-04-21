@@ -21,12 +21,12 @@ export default function infoPage({ navigation }) {
     <View style={styles.container}>
       <ScrollView>
         <TextInput
-          label="User"
+          label="שם משתמש"
           value={UserName}
           onChangeText={(UserName) => setuserName(UserName)}
         />
         <TextInput
-          label="Pass"
+          label="סיסמא"
           value={Password}
           onChangeText={(Password) => setPass(Password)}
         />
@@ -56,7 +56,7 @@ Lorem Ipsum הוא פשוט טקסט גולמי של תעשיית ההדפסה �
             navigation.navigate("HomePage");
           }}
         >
-          go to LOGIN screen
+          לדף הבית
         </Button>
       </ScrollView>
     </View>
