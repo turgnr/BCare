@@ -1,18 +1,19 @@
 import React, { createRef, useEffect, useState } from "react";
 import {
-  SafeAreaView,
   StyleSheet,
   Text,
   View,
   Image,
   KeyboardAvoidingView,
-  Keyboard,
   TouchableOpacity,
   ScrollView,
+  Dimensions,
+  Alert
 } from "react-native";
 import Loader from "./Loader";
 import { TextInput } from "react-native-paper";
-import MapView, { Marker,PROVIDER_GOOGLE } from "react-native-maps";
+import { useHeaderHeight } from "@react-navigation/stack";
+import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 
 export default function RegisterPage({ navigation }) {
   const [userName, setUserName] = useState("");
@@ -31,7 +32,19 @@ export default function RegisterPage({ navigation }) {
   const [location, setLocation] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:8081/RegisterPage", {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setLocation(JSON.stringify(position)).then(() => {
+          console.log("location", location);
+        });
+        console.log("position", position);
+      },
+      (error) => alert("נא לאשר גישת מיקום כדי להמשיך")
+    );
+  }, []);
+
+  useEffect(() => {
+    fetch("http://192.168.1.5:8081/RegisterPage", {
       // chang to mock server
       method: "GET",
       headers: {
@@ -42,16 +55,10 @@ export default function RegisterPage({ navigation }) {
       .then((response) => response.json())
       .then((responseJson) => {
         setListOfUsers(responseJson);
+        console.log("data download");
       });
   }, []);
-  useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        setLocation(position).then(()=>{console.log("location", location)});
-        console.log("position", position);
-      }
-    );
-  }, []);
+
   const handleSubmitButton = () => {
     setErrortext("");
     if (!userName) {
@@ -85,7 +92,7 @@ export default function RegisterPage({ navigation }) {
       },
       isValid: true,
     };
-    fetch("http://localhost:8081/RegisterPage", {
+    fetch("http://192.168.1.5:8081/RegisterPage", {
       // chang to mock server
       method: "POST",
       body: JSON.stringify(dataToSend),
@@ -142,28 +149,22 @@ export default function RegisterPage({ navigation }) {
     );
   }
   return (
-    <SafeAreaView>
+    <View style={{ flex: 1 }}>
       <Loader loading={loading} />
       <ScrollView
-        keyboardShouldPersistTaps="handled"
         contentContainerStyle={{
           justifyContent: "center",
           alignContent: "center",
         }}
       >
-        <SafeAreaView style={{ alignItems: "center" }}>
+        <View style={{ alignItems: "center", backgroundColor: "#E5C7ED" }}>
           <Image
             source={require("E:/Repos/Bcare/client/assets/logo.png")}
-            style={{
-              width: "100%",
-              height: 95,
-              resizeMode: "contain",
-              margin: 30,
-            }}
+            style={styles.SectionStyleLogo}
           />
-        </SafeAreaView>
+        </View>
         <KeyboardAvoidingView enabled>
-          <SafeAreaView style={styles.SectionStyle}>
+          <View style={styles.SectionStyle}>
             <TextInput
               style={styles.inputStyle}
               onChangeText={(UserName) => setUserName(UserName)}
@@ -186,8 +187,8 @@ export default function RegisterPage({ navigation }) {
                 setErrortext(flagError ? "change user name" : "");
               }}
             />
-          </SafeAreaView>
-          <SafeAreaView style={styles.SectionStyle}>
+          </View>
+          <View style={styles.SectionStyle}>
             <TextInput
               style={styles.inputStyle}
               onChangeText={(UserEmail) => setUserEmail(UserEmail)}
@@ -202,8 +203,8 @@ export default function RegisterPage({ navigation }) {
               }
               blurOnSubmit={false}
             />
-          </SafeAreaView>
-          <SafeAreaView style={styles.SectionStyle}>
+          </View>
+          <View style={styles.SectionStyle}>
             <TextInput
               style={styles.inputStyle}
               onChangeText={(UserAge) => setUserAge(UserAge)}
@@ -218,8 +219,8 @@ export default function RegisterPage({ navigation }) {
               }
               blurOnSubmit={false}
             />
-          </SafeAreaView>
-          <SafeAreaView style={styles.container}>
+          </View>
+          <View style={styles.SectionStyleM}>
             <MapView
               provider={PROVIDER_GOOGLE}
               style={styles.mapStyle}
@@ -229,15 +230,17 @@ export default function RegisterPage({ navigation }) {
                 latitudeDelta: 0.0016303586663286,
                 longitudeDelta: 0.001121738708019257,
               }}
+              onRegionChangeComplete = {(region)=>{setLocation(region)}}
             >
-              <Marker
+              {location != null ?
+              (<Marker
                 title="address"
                 coordinate={{
-                  latitude: location.latitude ? location.latitude : 31.652,
+                  latitude: location.longitude ? location.latitude : 31.652,
                   longitude: location.longitude ? location.longitude : 34.7411,
                 }}
                 draggable
-              />
+              /> ): null}
             </MapView>
             {/* <TextInput
               style={styles.inputStyle}
@@ -251,7 +254,7 @@ export default function RegisterPage({ navigation }) {
               onSubmitEditing={Keyboard.dismiss}
               blurOnSubmit={false}
             /> */}
-          </SafeAreaView>
+          </View>
           {errortext != "" ? (
             <Text style={styles.errorTextStyle}>{errortext}</Text>
           ) : null}
@@ -259,12 +262,13 @@ export default function RegisterPage({ navigation }) {
             style={styles.buttonStyle}
             activeOpacity={0.5}
             onPress={handleSubmitButton}
+            disabled={errortext != ""}
           >
             <Text style={styles.buttonTextStyle}>REGISTER</Text>
           </TouchableOpacity>
         </KeyboardAvoidingView>
       </ScrollView>
-    </SafeAreaView>
+    </View>
   );
 }
 
@@ -276,13 +280,12 @@ const styles = StyleSheet.create({
     marginLeft: 35,
     marginRight: 35,
     margin: 10,
-    backgroundColor: "red",
   },
   buttonStyle: {
-    backgroundColor: "#C5ACCC",
+    backgroundColor: "#7DE24E",
     borderWidth: 0,
-    color: "#8C7891",
-    borderColor: "#4FFA00",
+    color: "#FFFFFF",
+    borderColor: "#7DE24E",
     height: 40,
     alignItems: "center",
     borderRadius: 30,
@@ -292,7 +295,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   buttonTextStyle: {
-    color: "black",
+    color: "#FFFFFF",
     paddingVertical: 10,
     fontSize: 16,
   },
@@ -320,14 +323,23 @@ const styles = StyleSheet.create({
     height: "100%",
     width: "100%",
   },
-  container: {
-    marginLeft: 20,
+
+  SectionStyleM: {
+    flexDirection: "row",
+    height: 150,
     marginTop: 20,
-    marginBottom: 50,
-    height: "30%", // 70% of height device screen
-    width: "85%", // 80% of width device screen
-    backgroundColor: "#8D8D8D",
-    alignItems: "center",
-    justifyContent: "center",
+    marginLeft: 35,
+    marginRight: 35,
+    margin: 10,
+  },
+  SectionStyleLogo: {
+    flexDirection: "row",
+    width: 70,
+    height: 70,
+    marginTop: 20,
+    marginLeft: 35,
+    marginRight: 35,
+    margin: 10,
+    resizeMode: "contain",
   },
 });

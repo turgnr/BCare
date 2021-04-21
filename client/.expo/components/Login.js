@@ -6,7 +6,7 @@ import { Button, TextInput } from "react-native-paper";
 export default function Login({ navigation }) {
   const [user, setuserName] = useState("");
   const [password, setPass] = useState("");
-  const uri = "http://localhost:8081/login";
+  const uri = "http://192.168.1.5:8081/login";
   return (
     <SafeAreaView style={styles.container}>
       <TextInput
@@ -22,10 +22,10 @@ export default function Login({ navigation }) {
       />
       <Button
         mode="contained"
-        onPress={()=> {
-           navigation.navigate("HomePage",{
-              a:user,
-             b:password,
+        onPress={() => {
+          navigation.navigate("HomePage", {
+            a: user,
+            b: password,
           });
         }}
       >
@@ -43,25 +43,26 @@ export default function Login({ navigation }) {
       <Button
         icon="offine_bolt"
         mode="contained"
-        onPress={
-          (() => {
-            fetch(uri, {
-              method: "post",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(user + " " + password),
-            })
-              .then((jsonRes) => jsonRes.json())
-              .then((data) => {
-                console.log(data);
-                navigation.navigate("HomePage");
-              })
-              .catch((err) => {
-                console.log("error data " + err);
-              });
+        onPress={() => {
+          fetch(uri, {
+            method: "post",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(user + " " + password),
           })
-        }
+            .then((jsonRes) => jsonRes.json())
+            .then((data) => {
+              console.log(data);
+              navigation.navigate("HomePage",{
+                a: user,
+                b: password,
+              });
+            })
+            .catch((err) => {
+              console.log("error data " + err);
+            });
+        }}
       >
         to SERVER
       </Button>

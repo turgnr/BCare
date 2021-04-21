@@ -15,7 +15,7 @@ export default function tablePage({ navigation }) {
   const https = "https://";
   const [loading, setLoading] = useState(true);
   const [ListofAssociations, SetListofAssociations] = useState([]);
-  const uri = "http://localhost:8081/tablePage";
+  const uri = "http://192.168.1.5:8081/tablePage";
   useEffect(() => {
     fetch(uri, {
       // chang to mock server

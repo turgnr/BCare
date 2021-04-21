@@ -8,7 +8,7 @@ export default function QuestionPage({ navigation }) {
   const [Password, setPass] = useState("pass-");
   const [Nuser, setNuser] = useState("user-Name");
   const [Npass, setNpass] = useState("pass");
-  const uri = "http://localhost:8081/HomePage";
+  const uri = "http://192.168.1.5:8081/HomePage";
 
   return (
     <SafeAreaView style={styles.container}>
