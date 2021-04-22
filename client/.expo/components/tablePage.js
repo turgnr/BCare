@@ -37,7 +37,7 @@ export default function tablePage({ navigation }) {
         <DataTable.Header>
           <DataTable.Title>שם</DataTable.Title>
           <DataTable.Title>כתובת</DataTable.Title>
-          <DataTable.Title numeric>טלפון</DataTable.Title>
+          <DataTable.Title>טלפון</DataTable.Title>
           <DataTable.Title>אימייל</DataTable.Title>
           <DataTable.Title>אתר העמותה</DataTable.Title>
         </DataTable.Header>

@@ -21,6 +21,7 @@ export default function Login({ navigation }) {
         onChangeText={(password) => setPass(password)}
       />
       <Button
+      icon="login"
         mode="contained"
         onPress={() => {
           navigation.navigate("HomePage", {
@@ -29,19 +30,19 @@ export default function Login({ navigation }) {
           });
         }}
       >
-        התחברות
+        לדף הבית
       </Button>
       <Button
-        icon="offine_bolt"
+        icon="playlist-edit"
         mode="contained"
         onPress={() => {
           navigation.navigate("RegisterPage");
         }}
       >
-        הרשמה
+        להרשמה
       </Button>
       <Button
-        icon="offine_bolt"
+        icon="do-not-disturb"
         mode="contained"
         onPress={() => {
           fetch(uri, {

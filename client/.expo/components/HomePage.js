@@ -18,7 +18,7 @@ export default function HomePage({ navigation, route }) {
     <SafeAreaView style={styles.container}>
       <SafeAreaView>
         <Button
-          icon="offine_bolt"
+          icon="information-variant"
           mode="contained"
           onPress={() => navigation.navigate("infoPage")}
         >
@@ -27,7 +27,7 @@ export default function HomePage({ navigation, route }) {
       </SafeAreaView>
       <SafeAreaView>
         <Button
-          icon="offine_bolt"
+          icon="account-question"
           mode="contained"
           onPress={() => navigation.navigate("QuestionPage")}
         >
@@ -36,7 +36,7 @@ export default function HomePage({ navigation, route }) {
       </SafeAreaView>
       <SafeAreaView>
         <Button
-          icon="offine_bolt"
+          icon="account-circle"
           mode="contained"
           onPress={() => navigation.navigate("xPage")}
         >
@@ -45,7 +45,7 @@ export default function HomePage({ navigation, route }) {
       </SafeAreaView>
       <SafeAreaView>
         <Button
-          icon="offine_bolt"
+          icon="heart-multiple"
           mode="contained"
           onPress={() => navigation.navigate("tablePage")}
         >
