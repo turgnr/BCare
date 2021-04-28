@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import {
   SafeAreaView,
   StyleSheet,
@@ -13,7 +13,14 @@ export default function HomePage({ navigation, route }) {
   const { a } = route.params;
   const [Nid, setid] = useState(a);
 
-
+useEffect(() => {
+  Nid? Nid:setid(a);
+  console.log(a);
+  console.log(route.params);
+  return () => {
+    
+  }
+}, [])
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView>

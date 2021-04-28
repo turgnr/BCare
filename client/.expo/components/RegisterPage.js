@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   ScrollView,
   Dimensions,
-  Alert
+  Alert,
 } from "react-native";
 import Loader from "./Loader";
 import { TextInput } from "react-native-paper";
@@ -17,6 +17,7 @@ import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 
 export default function RegisterPage({ navigation }) {
   const [userName, setUserName] = useState("");
+  const [userPass, setUserPass] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [userAge, setUserAge] = useState("");
   const [userAddress, setUserAddress] = useState("");
@@ -39,7 +40,6 @@ export default function RegisterPage({ navigation }) {
         });
         console.log("position", position);
       },
-      (error) => alert("נא לאשר גישת מיקום כדי להמשיך")
     );
   }, []);
 
@@ -65,6 +65,10 @@ export default function RegisterPage({ navigation }) {
       alert("שם משתמש חסר");
       return;
     }
+    if (!userPass) {
+      alert("סיסמא חסרה");
+      return;
+    }
     if (!userEmail) {
       alert("אימייל חסר");
       return;
@@ -73,22 +77,21 @@ export default function RegisterPage({ navigation }) {
       alert("גיל חסר");
       return;
     }
-    if (!userAddress) {
-      alert("כתובת חסרה");
+    if (!userPhone) {
+      alert("מספר פלאפון חסר");
       return;
     }
     //Show Loader
-    // !!! complete the field of USER object scheme
     setLoading(true);
     var dataToSend = {
       UserName: userName,
-      Email: UserEmail,
-      Age: UserAge,
+      Email: userEmail,
+      Age: userAge,
       PhonNumber: userPhone,
-      Password: "12",
+      Password: userPass,
       Address: {
-        lat: "12",
-        lon: "12",
+        lat: location.latitude,
+        lon: location.longitude,
       },
       isValid: true,
     };
@@ -101,15 +104,14 @@ export default function RegisterPage({ navigation }) {
         "Content-Type": "application/json; charset=UTF-8",
       },
     })
-      .then((response) => response.json())
       .then((responseJson) => {
         //Hide Loader
+        console.log("responseJson",responseJson);
         setLoading(false);
-        console.log(responseJson);
         // If server response message same as Data Matched
-        if (responseJson.status == 1) {
+        if (responseJson.status == 200) {
           setIsRegistraionSuccess(true);
-          console.log("הרשמה נקלטה בהצלחה אנא עבור למסך ההתחברות");
+          console.log("הרשמה נקלטה בהצלחה");
         } else {
           setErrortext("ההרשמה נכשלה");
         }
@@ -137,13 +139,15 @@ export default function RegisterPage({ navigation }) {
             alignSelf: "center",
           }}
         />
-        <Text style={styles.successTextStyle}>Registration Successful</Text>
+        <Text style={styles.successTextStyle}>הרשמתך נקלטה בהצלחה</Text>
         <TouchableOpacity
           style={styles.buttonStyle}
           activeOpacity={0.5}
-          onPress={() => navigation.navigate("LoginScreen")}
+          onPress={() =>
+            navigation.navigate("HomePage")
+          }
         >
-          <Text style={styles.buttonTextStyle}>Login Now</Text>
+          <Text style={styles.buttonTextStyle}>למסך הבית</Text>
         </TouchableOpacity>
       </View>
     );
@@ -191,6 +195,18 @@ export default function RegisterPage({ navigation }) {
           <View style={styles.SectionStyle}>
             <TextInput
               style={styles.inputStyle}
+              onChangeText={(Userpass) => setUserPass(Userpass)}
+              underlineColorAndroid="#f000"
+              placeholder="הכנס סיסמא"
+              placeholderTextColor="#8b9cb5"
+              autoCapitalize="sentences"
+              returnKeyType="next"
+              blurOnSubmit={false}
+            />
+          </View>
+          <View style={styles.SectionStyle}>
+            <TextInput
+              style={styles.inputStyle}
               onChangeText={(UserEmail) => setUserEmail(UserEmail)}
               underlineColorAndroid="#f000"
               placeholder="הכנס כתובת מייל"
@@ -202,6 +218,24 @@ export default function RegisterPage({ navigation }) {
                 ageInputRef.current && ageInputRef.current.focus()
               }
               blurOnSubmit={false}
+            />
+          </View>
+          <View style={styles.SectionStyle}>
+            <TextInput
+              style={styles.inputStyle}
+              onChangeText={(UserPhone) => setUserPhone(UserPhone)}
+              underlineColorAndroid="#f000"
+              placeholder="פלאפון"
+              placeholderTextColor="#8b9cb5"
+              autoCapitalize="sentences"
+              returnKeyType="next"
+              blurOnSubmit={false}
+              onEndEditing={() => {
+                let flagError = false;
+                if (isNaN(userPhone) || !(userPhone.length === 10))
+                  flagError = true;
+                setErrortext(flagError ? "מספר פלאפון חוקי בעל 10 ספרות" : "");
+              }}
             />
           </View>
           <View style={styles.SectionStyle}>
@@ -221,6 +255,7 @@ export default function RegisterPage({ navigation }) {
             />
           </View>
           <View style={styles.SectionStyleM}>
+            <Text>סמני את מיקומך בעזרת הסמן</Text>
             <MapView
               provider={PROVIDER_GOOGLE}
               style={styles.mapStyle}
@@ -230,30 +265,23 @@ export default function RegisterPage({ navigation }) {
                 latitudeDelta: 0.0016303586663286,
                 longitudeDelta: 0.001121738708019257,
               }}
-              onRegionChangeComplete = {(region)=>{setLocation(region)}}
+              onRegionChangeComplete={(region) => {
+                setLocation(region);
+              }}
             >
-              {location != null ?
-              (<Marker
-                title="כתובתך"
-                coordinate={{
-                  latitude: location.longitude ? location.latitude : 31.652,
-                  longitude: location.longitude ? location.longitude : 34.7411,
-                }}
-                draggable
-              /> ): null}
+              {location != null ? (
+                <Marker
+                  title="כתובתך"
+                  coordinate={{
+                    latitude: location.longitude ? location.latitude : 31.652,
+                    longitude: location.longitude
+                      ? location.longitude
+                      : 34.7411,
+                  }}
+                  draggable
+                />
+              ) : null}
             </MapView>
-            {/* <TextInput
-              style={styles.inputStyle}
-              onChangeText={(UserAddress) => setUserAddress(UserAddress)}
-              underlineColorAndroid="#f000"
-              placeholder="Enter Address"
-              placeholderTextColor="#8b9cb5"
-              autoCapitalize="sentences"
-              ref={addressInputRef}
-              returnKeyType="next"
-              onSubmitEditing={Keyboard.dismiss}
-              blurOnSubmit={false}
-            /> */}
           </View>
           {errortext != "" ? (
             <Text style={styles.errorTextStyle}>{errortext}</Text>
@@ -320,12 +348,14 @@ const styles = StyleSheet.create({
     padding: 30,
   },
   mapStyle: {
-    height: "100%",
-    width: "100%",
+    height: "80%",
+    width: "90%",
   },
 
   SectionStyleM: {
-    flexDirection: "row",
+    flexDirection: "column",
+    alignContent: "center",
+    justifyContent: "space-between",
     height: 150,
     marginTop: 20,
     marginLeft: 35,

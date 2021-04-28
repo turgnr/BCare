@@ -3,16 +3,24 @@ const mongoose = require("mongoose");
 const router = express.Router();
 const User = require("../models/Users");
 
-var name = null;
-var pass = null;
-
-
-router.get("/login", function (req, res, next) {
-  if (null == name) {
-    res.send("get");
-  } else {
-    res.send(name);
-  }
+let name = "";
+let pass = "";
+let users = [];
+router.get("/login", async function (req, res, next) {
+  console.log("GET- login", req.query);
+  const users = await User.find({});
+  var flag = false;
+  users.every((element) => {
+    console.log(req.query.UserName, "===", element.UserName);
+    console.log(req.query.Password, "===", element.Password);
+    if (
+      req.query.UserName === element.UserName &&
+      req.query.Password === element.Password
+    ) {
+        return flag = true;
+    }
+  });
+   return flag? res.status(200).send('user is able'):res.status(400).send('user is not able');
 });
 
 router.post("/login", function (req, res, next) {

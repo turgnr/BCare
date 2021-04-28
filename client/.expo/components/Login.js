@@ -1,36 +1,74 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useFocusEffect, useCallback } from "react";
 import { SafeAreaView, StyleSheet, Text, View, StatusBar } from "react-native";
-
+import axios from "axios";
 import { Button, TextInput } from "react-native-paper";
+import HomePage from "./HomePage";
 
 export default function Login({ navigation }) {
   const [user, setuserName] = useState("");
   const [password, setPass] = useState("");
+  const [backPressedCount, setBackPressedCount] = useState(0);
+  const [errortext, setErrortext] = useState("");
   const uri = "http://192.168.1.5:8081/login";
+
+  useEffect(() => {
+    if (backPressedCount === 2) {
+      BackHandler.exitApp();
+    }
+  }, [backPressedCount]);
   return (
     <SafeAreaView style={styles.container}>
       <TextInput
         label="שם משתמש"
         value={user}
+        placeholder="הכנסי שם משתמש"
         onChangeText={(user) => setuserName(user)}
-      />
+        />
       <TextInput
         label="סיסמא"
         Type="outline"
+        placeholder="הכנסי סיסמא"
         value={password}
         onChangeText={(password) => setPass(password)}
-      />
+        />
+        {errortext != "" ? (
+              <Text style={styles.errorTextStyle}>{errortext}</Text>
+            ) : null}
       <Button
-      icon="login"
+        icon="account-arrow-right"
         mode="contained"
         onPress={() => {
-          navigation.navigate("HomePage", {
-            a: user,
-            b: password,
-          });
+          console.log("GET - Login");
+          axios
+            .get(uri, {
+              params: {
+                UserName: user,
+                Password: password,
+              },
+            })
+            .then(function (response) {
+              console.log('response',response);
+              console.log('response.status',response.status);
+              console.log('response.statusText',response.statusText);
+              if(response.status == 200)
+              {
+                navigation.navigate("HomePage", {
+                  a: user,
+                });
+              }
+              else{
+                alert("גמור");
+                setErrortext("שם משתמש או סיסמא לא נכונים");
+                setPass("");
+                setuserName("");
+              }
+            })
+            .catch(function (error) {
+              console.log('erorr',error);
+            });
         }}
       >
-        לדף הבית
+        התחברי
       </Button>
       <Button
         icon="playlist-edit"
@@ -42,30 +80,15 @@ export default function Login({ navigation }) {
         להרשמה
       </Button>
       <Button
-        icon="do-not-disturb"
+        icon="account-arrow-right-outline"
         mode="contained"
         onPress={() => {
-          fetch(uri, {
-            method: "post",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(user + " " + password),
-          })
-            .then((jsonRes) => jsonRes.json())
-            .then((data) => {
-              console.log(data);
-              navigation.navigate("HomePage",{
-                a: user,
-                b: password,
-              });
-            })
-            .catch((err) => {
-              console.log("error data " + err);
-            });
+          navigation.navigate("HomePage", {
+            a: user ? user : "אורחת",
+          });
         }}
       >
-        בדיקת שרת
+        אורחת
       </Button>
     </SafeAreaView>
   );
@@ -76,5 +99,10 @@ const styles = StyleSheet.create({
     flex: 1,
     width: "100%",
     height: "100%",
+  },
+  errorTextStyle: {
+    color: "red",
+    textAlign: "center",
+    fontSize: 14,
   },
 });
