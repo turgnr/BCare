@@ -10,17 +10,18 @@ router.get("/login", async function (req, res, next) {
   console.log("GET- login", req.query);
   const users = await User.find({});
   var flag = false;
-  users.every((element) => {
-    console.log(req.query.UserName, "===", element.UserName);
-    console.log(req.query.Password, "===", element.Password);
+  for(i=0;i<users.length;i++){
+    console.log(req.query.UserName, "===", users[i].UserName);
+    console.log(req.query.Password, "===", users[i].Password);
     if (
-      req.query.UserName === element.UserName &&
-      req.query.Password === element.Password
+      req.query.UserName === users[i].UserName &&
+      req.query.Password === users[i].Password
     ) {
-        return flag = true;
+         flag = true;
+         break;// if the details of user are exist we give him to connect to the app
     }
-  });
-   return flag? res.status(200).send('user is able'):res.status(400).send('user is not able');
+  };
+   return flag? res.status(200).send('user is able'):res.status(203).send('user is not able');
 });
 
 router.post("/login", function (req, res, next) {

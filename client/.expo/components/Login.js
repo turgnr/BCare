@@ -16,6 +16,24 @@ export default function Login({ navigation }) {
       BackHandler.exitApp();
     }
   }, [backPressedCount]);
+
+ const checkFiled= () =>{
+    if(!user){
+      setErrortext('שם משתמש חסר');
+      return false;
+    }
+    if(!password)
+    {
+      setErrortext('סיסמא חסרה');
+      return false; 
+    }
+    setErrortext("");
+    return true;
+  }
+
+
+
+
   return (
     <SafeAreaView style={styles.container}>
       <TextInput
@@ -38,35 +56,36 @@ export default function Login({ navigation }) {
         icon="account-arrow-right"
         mode="contained"
         onPress={() => {
-          console.log("GET - Login");
-          axios
-            .get(uri, {
-              params: {
-                UserName: user,
-                Password: password,
-              },
-            })
-            .then(function (response) {
-              console.log('response',response);
-              console.log('response.status',response.status);
-              console.log('response.statusText',response.statusText);
-              if(response.status == 200)
-              {
-                navigation.navigate("HomePage", {
-                  a: user,
-                });
-              }
-              else{
-                alert("גמור");
-                setErrortext("שם משתמש או סיסמא לא נכונים");
-                setPass("");
-                setuserName("");
-              }
-            })
-            .catch(function (error) {
-              console.log('erorr',error);
-            });
-        }}
+          if(checkFiled())
+          {
+            console.log("GET - Login");
+            axios
+              .get(uri, {
+                params: {
+                  UserName: user,
+                  Password: password,
+                },
+              })
+              .then(function (response) {
+                console.log('response',response.data);
+                console.log('response.status',response.status);
+                if(response.status == 200)
+                {
+                  navigation.navigate("HomePage", {
+                    a: user,
+                  });
+                }
+                if(response.status == 203){
+                  setErrortext("שם משתמש או סיסמא לא נכונים");
+                  setPass("");
+                  setuserName("");
+                }
+              })
+              .catch(function (error) {
+                console.log('error',error);
+              });
+          }}
+          }
       >
         התחברי
       </Button>

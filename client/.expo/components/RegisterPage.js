@@ -14,6 +14,7 @@ import Loader from "./Loader";
 import { TextInput } from "react-native-paper";
 import { useHeaderHeight } from "@react-navigation/stack";
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
+import axios from "axios";
 
 export default function RegisterPage({ navigation }) {
   const [userName, setUserName] = useState("");
@@ -31,6 +32,7 @@ export default function RegisterPage({ navigation }) {
   const addressInputRef = createRef();
   const [listOfUsers, setListOfUsers] = useState([]);
   const [location, setLocation] = useState({});
+  const uri = "http://192.168.1.5:8081/RegisterPage"; 
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(
@@ -44,7 +46,7 @@ export default function RegisterPage({ navigation }) {
   }, []);
 
   useEffect(() => {
-    fetch("http://192.168.1.5:8081/RegisterPage", {
+    axios.get(uri, {
       // chang to mock server
       method: "GET",
       headers: {
@@ -52,7 +54,7 @@ export default function RegisterPage({ navigation }) {
         "Content-Type": "application/json; charset=UTF-8",
       },
     })
-      .then((response) => response.json())
+      .then((response) => response.data.json())
       .then((responseJson) => {
         setListOfUsers(responseJson);
         console.log("data download");
@@ -95,7 +97,7 @@ export default function RegisterPage({ navigation }) {
       },
       isValid: true,
     };
-    fetch("http://192.168.1.5:8081/RegisterPage", {
+    fetch(, {
       // chang to mock server
       method: "POST",
       body: JSON.stringify(dataToSend),
