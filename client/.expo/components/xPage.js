@@ -12,23 +12,23 @@ export default function xPage({ navigation }) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <TextInput
-        label="User"
-        value={UserName}
-        onChangeText={(UserName) => setuserName(UserName)}
-      />
-      <TextInput
-        label="Pass"
-        value={Password}
-        onChangeText={(Password) => setPass(Password)}
-      />
-      <Button icon="pan_tool" mode="contained"
-      onPress={
-        ()=>{
+      <Text
+        style={{ backgroundColor: "#a7a6a9", color: "yellow", fontSize: 20 }}
+      >
+        this is inline style
+      </Text>
+      <Text style={styles.green}>just green</Text>
+      <Text style={styles.biggray}>just biggray</Text>
+      <Text style={[styles.biggray, styles.green]}>biggray, then green</Text>
+      <Text style={[styles.green, styles.biggray]}>green, then biggray</Text>
+      <Button
+        icon="pan_tool"
+        mode="contained"
+        onPress={() => {
           navigation.navigate("HomePage");
-        }
-      }>
-        go to LOGIN screen
+        }}
+      >
+        חזרה למסך הבית
       </Button>
     </SafeAreaView>
   );
@@ -39,5 +39,13 @@ const styles = StyleSheet.create({
     flex: 1,
     width: "100%",
     height: "100%",
+  },
+  biggray: {
+    color: "gray",
+    fontWeight: "bold",
+    fontSize: 30,
+  },
+  green: {
+    color: "green",
   },
 });

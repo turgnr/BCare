@@ -32,29 +32,28 @@ export default function RegisterPage({ navigation }) {
   const addressInputRef = createRef();
   const [listOfUsers, setListOfUsers] = useState([]);
   const [location, setLocation] = useState({});
-  const uri = "http://192.168.1.5:8081/RegisterPage"; 
+  const uri = "http://192.168.1.5:8081/RegisterPage";
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        setLocation(JSON.stringify(position)).then(() => {
-          console.log("location", location);
-        });
-        console.log("position", position);
-      },
-    );
+    navigator.geolocation.getCurrentPosition((position) => {
+      setLocation(JSON.stringify(position)).then(() => {
+        console.log("location", location);
+      });
+      console.log("position", position);
+    });
   }, []);
 
   useEffect(() => {
-    axios.get(uri, {
-      // chang to mock server
-      method: "GET",
-      headers: {
-        //Header Definition
-        "Content-Type": "application/json; charset=UTF-8",
-      },
-    })
-      .then((response) => response.data.json())
+    axios
+      .get(uri, {
+        // chang to mock server
+        method: "GET",
+        headers: {
+          //Header Definition
+          "Content-Type": "application/json; charset=UTF-8",
+        },
+      })
+      .then((response) => response.data)
       .then((responseJson) => {
         setListOfUsers(responseJson);
         console.log("data download");
@@ -97,25 +96,18 @@ export default function RegisterPage({ navigation }) {
       },
       isValid: true,
     };
-    fetch(, {
-      // chang to mock server
-      method: "POST",
-      body: JSON.stringify(dataToSend),
-      headers: {
-        //Header Definition
-        "Content-Type": "application/json; charset=UTF-8",
-      },
-    })
+    axios
+      .post(uri, dataToSend)
       .then((responseJson) => {
         //Hide Loader
-        console.log("responseJson",responseJson);
+        console.log("responseJson", responseJson);
         setLoading(false);
         // If server response message same as Data Matched
         if (responseJson.status == 200) {
           setIsRegistraionSuccess(true);
           console.log("הרשמה נקלטה בהצלחה");
         } else {
-          setErrortext("ההרשמה נכשלה");
+          console.log("ההרשמה נכשלה");
         }
       })
       .catch((error) => {
@@ -145,9 +137,9 @@ export default function RegisterPage({ navigation }) {
         <TouchableOpacity
           style={styles.buttonStyle}
           activeOpacity={0.5}
-          onPress={() =>
-            navigation.navigate("HomePage")
-          }
+          onPress={() => navigation.navigate("HomePage", {
+            a: userName,
+          })}
         >
           <Text style={styles.buttonTextStyle}>למסך הבית</Text>
         </TouchableOpacity>

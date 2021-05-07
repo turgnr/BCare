@@ -1,7 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const router = express.Router();
-const Login = require("../models/Login");
 const Users = require("../models/Users");
 const bodyParser = require("body-parser");
 const { db } = require("../models/Users");
@@ -38,21 +37,6 @@ router.get("/test", async function (req, res, next) {
   // }
   */
   }
-});
-router.post("/test", function (req, res, next) {
-  console.log("POST- test");
-  console.log('req.body=>',req.body);
-  [UserName, Password] = req.body;
-  isValid = true;
-  const userToLog = new Login({
-    _id: new mongoose.Types.ObjectId(),
-    UserName,
-    Password,
-    isValid: isValid ? isValid : true,
-  });
-  console.log("insert\n" + userToLog.UserName);
-  userToLog.save();
-  res.send("checked the user");
 });
 
 module.exports = router;

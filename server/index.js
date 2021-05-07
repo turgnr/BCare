@@ -57,9 +57,9 @@ app.use(test);
 //use route for tablePage screen
 app.use(tablePage);
 
-app.use(function (err, req, res, next) {
-  res.status(422).send({ error: err.message });
-});
+//app.use(function (err, req, res, next) {
+// res.status(422).send({ error: err.message });
+//});
 app.get("/", function (req, res) {
   res.send("hello");
 });

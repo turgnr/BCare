@@ -11,8 +11,6 @@ router.get("/login", async function (req, res, next) {
   const users = await User.find({});
   var flag = false;
   for(i=0;i<users.length;i++){
-    console.log(req.query.UserName, "===", users[i].UserName);
-    console.log(req.query.Password, "===", users[i].Password);
     if (
       req.query.UserName === users[i].UserName &&
       req.query.Password === users[i].Password

@@ -10,7 +10,7 @@ import {
 import { Button } from "react-native-paper";
 
 export default function HomePage({ navigation, route }) {
-  const { a } = route.params;
+  const { a } = route.params; //the name of user are log-in
   const [Nid, setid] = useState(a);
 
 useEffect(() => {
