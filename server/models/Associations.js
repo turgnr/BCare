@@ -9,7 +9,7 @@ const AssociationsSchema = new Schema({
     type: String,
   },
   PhoneNumber: {
-    type: Number,
+    type: String,
   },
   Email: {
     type: String,

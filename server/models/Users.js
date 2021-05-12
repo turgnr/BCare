@@ -7,6 +7,7 @@ const  UsersSchema = new Schema({
   UserName: {
     type: String,
     required: [true, "user name is must value"],
+    unique:true //make the UserName to unique value
   },
   Email: String,
   Age: Number,

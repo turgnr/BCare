@@ -8,8 +8,8 @@ router.get("/tablePage", async function (req, res, next) {
 });
 
 router.post("/tablePage", function (req, res, next) {
-  if (Associations.exists({ Name: req.body.Name })) {
-    console.log(req.body.Name);
+Associations.exists({ Name: req.body.Name }).then(condition=>{
+  if (condition) {
     return res.send("Association are exists");
   } else {
     Associations.create(req.body)
@@ -19,7 +19,7 @@ router.post("/tablePage", function (req, res, next) {
       })
       .catch(next);
   }
-});
+});});
 
 router.put("/tablePage/:id", function (req, res, next) {
   res.send("put");
