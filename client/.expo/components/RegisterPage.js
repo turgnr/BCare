@@ -15,6 +15,7 @@ import { TextInput } from "react-native-paper";
 import { useHeaderHeight } from "@react-navigation/stack";
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import axios from "axios";
+import EmergencyButton from "./EmergencyButton";
 
 export default function RegisterPage({ navigation }) {
   const [userName, setUserName] = useState("");
@@ -290,6 +291,7 @@ export default function RegisterPage({ navigation }) {
           </TouchableOpacity>
         </KeyboardAvoidingView>
       </ScrollView>
+      <EmergencyButton/>
     </View>
   );
 }

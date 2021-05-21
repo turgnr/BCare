@@ -8,6 +8,7 @@ import {
 } from "react-native";
 
 import { Button } from "react-native-paper";
+import EmergencyButton from "./EmergencyButton";
 
 export default function HomePage({ navigation, route }) {
   const { a } = route.params; //the name of user are log-in
@@ -62,6 +63,7 @@ useEffect(() => {
       <Text>
          {Nid} שלום
       </Text>
+      <EmergencyButton/>
     </SafeAreaView>
   );
 }

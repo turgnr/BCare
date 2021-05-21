@@ -10,25 +10,21 @@ import {
 import { DataTable } from "react-native-paper";
 
 import { Button, TextInput } from "react-native-paper";
+import axios from "axios";
+import EmergencyButton from "./EmergencyButton";
 
 export default function tablePage({ navigation }) {
   const https = "https://";
   const [loading, setLoading] = useState(true);
   const [ListofAssociations, SetListofAssociations] = useState([]);
-  const uri = "http://192.168.1.5:8081/tablePage";
+  const uri = "http://192.168.1.7:8081/tablePage";
   useEffect(() => {
-    fetch(uri, {
-      // chang to mock server
-      method: "GET",
-      headers: {
-        //Header Definition
-        "Content-Type": "application/json; charset=UTF-8",
-      },
-    })
-      .then((response) => response.json())
+    axios
+      .get(uri)
       .then((responseJson) => {
+        console.log(responseJson.data);
         setLoading(false);
-        SetListofAssociations(responseJson);
+        SetListofAssociations(responseJson.data);
       });
   }, []);
   return (
@@ -82,6 +78,7 @@ export default function tablePage({ navigation }) {
           label="1-2 of 6"
         /> */}
       </DataTable>
+      <EmergencyButton/>
     </SafeAreaView>
   );
 }

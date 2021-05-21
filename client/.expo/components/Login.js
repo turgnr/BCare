@@ -2,14 +2,15 @@ import React, { useState, useEffect, useFocusEffect, useCallback } from "react";
 import { SafeAreaView, StyleSheet, Text, View, StatusBar } from "react-native";
 import axios from "axios";
 import { Button, TextInput } from "react-native-paper";
-import HomePage from "./HomePage";
+import EmergencyButton from "./EmergencyButton";
+
 
 export default function Login({ navigation }) {
   const [user, setuserName] = useState("");
   const [password, setPass] = useState("");
   const [backPressedCount, setBackPressedCount] = useState(0);
   const [errortext, setErrortext] = useState("");
-  const uri = "http://192.168.1.5:8081/login";
+  const uri = "http://192.168.1.7:8081/login";
 
   useEffect(() => {
     if (backPressedCount === 2) {
@@ -68,7 +69,6 @@ export default function Login({ navigation }) {
               })
               .then(function (response) {
                 console.log('response',response.data);
-                console.log('response.status',response.status);
                 if(response.status == 200)
                 {
                   navigation.navigate("HomePage", {
@@ -109,6 +109,7 @@ export default function Login({ navigation }) {
       >
         אורחת
       </Button>
+      <EmergencyButton/>
     </SafeAreaView>
   );
 }

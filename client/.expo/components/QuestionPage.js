@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { SafeAreaView, StyleSheet, Text, View, StatusBar } from "react-native";
 
 import { Button, TextInput } from "react-native-paper";
+import EmergencyButton from "./EmergencyButton";
 
 export default function QuestionPage({ navigation }) {
   const [UserName, setuserName] = useState("user-Name");
@@ -30,6 +31,7 @@ export default function QuestionPage({ navigation }) {
       }>
         go to LOGIN screen
       </Button>
+      <EmergencyButton/>
     </SafeAreaView>
   );
 }
