@@ -47,6 +47,7 @@ export default function Login({ navigation }) {
         label="סיסמא"
         Type="outline"
         placeholder="הכנסי סיסמא"
+        secureTextEntry
         value={password}
         onChangeText={(password) => setPass(password)}
         />
