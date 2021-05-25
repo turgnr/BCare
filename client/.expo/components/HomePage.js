@@ -55,7 +55,7 @@ useEffect(() => {
         <Button
           icon="heart-multiple"
           mode="contained"
-          onPress={() => navigation.navigate("tablePage")}
+          onPress={() => navigation.navigate("testTable")}
         >
           רשימת עמותות
         </Button>

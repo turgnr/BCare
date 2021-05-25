@@ -33,7 +33,7 @@ export default function RegisterPage({ navigation }) {
   const addressInputRef = createRef();
   const [listOfUsers, setListOfUsers] = useState([]);
   const [location, setLocation] = useState({});
-  const uri = "http://192.168.1.5:8081/RegisterPage";
+  const uri = "http://192.168.1.7:8081/RegisterPage";
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {

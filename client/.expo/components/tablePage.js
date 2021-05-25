@@ -4,12 +4,13 @@ import {
   SafeAreaView,
   StyleSheet,
   Linking,
-  StatusBar,
   View,
   Text,
+  TouchableOpacity,
+  Alert
 } from "react-native";
-import { DataTable, IconButton } from "react-native-paper";
-import { Button, TextInput } from "react-native-paper";
+import {Button } from "react-native-paper";
+import { Table, TableWrapper, Row, Cell } from 'react-native-table-component';
 import axios from "axios";
 import EmergencyButton from "./EmergencyButton";
 

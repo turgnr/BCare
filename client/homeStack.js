@@ -8,6 +8,7 @@ import QuestionPage from "./.expo/components/QuestionPage";
 import xPage from "./.expo/components/xPage";
 import tablePage from "./.expo/components/tablePage";
 import infoPage from "./.expo/components/infoPage";
+import testTable from "./.expo/components/testTable";
 
 const Stack = createStackNavigator();
 
@@ -22,6 +23,7 @@ export function RootStack() {
       <Stack.Screen name="xPage" component={xPage} />
       <Stack.Screen name="tablePage" component={tablePage} 
       options={{ title: 'עמותות'}}/>
+      <Stack.Screen name="testTable" component={testTable} options={{title:"בדיקה טבלה"}}/>
       <Stack.Screen name="infoPage" component={infoPage} options={{ title: 'מידע'}}/>
     </Stack.Navigator>
   );

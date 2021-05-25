@@ -2,7 +2,6 @@ import * as React from "react";
 import { StyleSheet,Linking } from "react-native";
 import { FAB } from "react-native-paper";
 import { DefaultTheme, Provider as PaperProvider } from "react-native-paper";
-import RNImmediatePhoneCall from 'react-native-immediate-phone-call';
 const theme = {
   ...DefaultTheme,
   colors: {
