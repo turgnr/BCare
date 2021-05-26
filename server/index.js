@@ -31,7 +31,6 @@ const db = mongoose.connect(uriDB, {
   useUnifiedTopology: true,
 }).finally(console.log("db is connected"));
 
-//TODO: connect the controller to USER models and try check the response from DB about specific user name & pass
 
 /*
  *END DB

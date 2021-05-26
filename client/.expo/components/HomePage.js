@@ -16,8 +16,6 @@ export default function HomePage({ navigation, route }) {
 
 useEffect(() => {
   Nid? Nid:setid(a);
-  console.log(a);
-  console.log(route.params);
   return () => {
     
   }
@@ -52,10 +50,10 @@ useEffect(() => {
         </Button>
       </SafeAreaView>
       <SafeAreaView>
-        <Button
+        <Button 
           icon="heart-multiple"
           mode="contained"
-          onPress={() => navigation.navigate("testTable")}
+          onPress={() => navigation.navigate("tablePage")}
         >
           רשימת עמותות
         </Button>

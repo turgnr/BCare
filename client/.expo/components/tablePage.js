@@ -1,98 +1,154 @@
 import React, { useState, useEffect } from "react";
-import Loader from "./Loader";
 import {
-  SafeAreaView,
   StyleSheet,
-  Linking,
   View,
   Text,
   TouchableOpacity,
-  Alert
+  ScrollView,
+  Linking,
+  SafeAreaView,
 } from "react-native";
-import {Button ,DataTable} from "react-native-paper";
+import { Table, TableWrapper, Row, Cell } from "react-native-table-component";
+import Loader from "./Loader";
+import { Button, IconButton, Colors } from "react-native-paper";
 import axios from "axios";
 import EmergencyButton from "./EmergencyButton";
 
 export default function tablePage({ navigation }) {
-  const https = "https://";
   const [loading, setLoading] = useState(true);
-  const [ListofAssociations, SetListofAssociations] = useState([]);
+  const [tableHead, SettableHead] = useState([]);
+  const [tableCol, SettableCol] = useState([]);
+  const [x, setX] = useState();
   const uri = "http://192.168.1.7:8081/tablePage";
   useEffect(() => {
     axios.get(uri).then((responseJson) => {
-      setLoading(false);
-      SetListofAssociations(responseJson.data);
+      setX(responseJson.data);
     });
   }, []);
 
-  //! update table and use in table-component
+  useEffect(() => {
+    if (x != null && x != undefined) {
+      convertData(x);
+      if (tableCol) {
+        setLoading(false);
+      }
+    } else {
+    }
+  }, [x]);
+
+  //set the data fit for table
+  async function convertData(x) {
+    if (x) {
+      let head1 = [];
+      Object.keys(x[0]).forEach((el, i) => {
+        if (i != 6 && i != 0) {
+          head1.push(el);
+        }
+      });
+      await SettableHead(head1);
+      let col = [];
+      x.forEach((el) => {
+        let col1 = [];
+        for (const [key, value] of Object.entries(el)) {
+          if (head1.includes(key)) {
+            col1.push(value);
+            if (key === "webSite") {
+              col.push(col1);
+            }
+          }
+        }
+      });
+      await SettableCol(col);
+    }
+
+    if (tableCol) setLoading(false);
+  }
+  //create the iconButton in the cells table
+  function data(i, data) {
+    switch (i) {
+      case 2:
+        return (
+          <IconButton
+            icon="phone"
+            onPress={() => Linking.openURL(`tel:${data}`)}
+            style={styles.btn}
+          />
+        );
+        break;
+      case 3:
+        return (
+          <IconButton
+            icon="email"
+            onPress={() =>
+              Linking.openURL(
+                "mailto://mailto:" + data + "?subject=יש לשנות נושא&body=body"
+              )
+            }
+            style={styles.btn}
+          />
+        );
+        break;
+      case 4:
+        return (
+          <IconButton
+            icon="web"
+            onPress={() => Linking.openURL(data)}
+            style={styles.btn}
+          />
+        );
+        break;
+      default:
+        return data;
+        break;
+    }
+  }
   return (
     <SafeAreaView style={styles.container}>
-      <DataTable>
-        <DataTable.Header>
-          <DataTable.Title>שם</DataTable.Title>
-          <DataTable.Title>כתובת</DataTable.Title>
-          <DataTable.Title>טלפון</DataTable.Title>
-          <DataTable.Title>אימייל</DataTable.Title>
-          <DataTable.Title>אתר העמותה</DataTable.Title>
-        </DataTable.Header>
-        {!loading ? (
-          ListofAssociations.map((element) => {
-            return (
-              <DataTable.Row
-                key={element._id}
-                size={50}
-                onPress={() => {
-                  console.log(`selected account ${element.webSite}`);
-                }}
-              >
-                <DataTable.Cell width="30">{element.Name}</DataTable.Cell>
-                <DataTable.Cell>
-                  <View>
-                    <Button
-                      icon="phone"
-                      size={5}
-                      onPress={() => {
-                        //Linking.openURL(https + element.webSite);
-                        console.log("loca");
-                      }}
-                    />
-                  </View>
-                </DataTable.Cell>
-                <DataTable.Cell
-                  onPress={() => {
-                    Linking.openURL(`tel:${element.PhoneNumber}`);
-                  }}
-                ></DataTable.Cell>
-                <DataTable.Cell>
-                  <Button
-                    mode="contained"
-                    icon="pan_tool"
-                    compact="true"
-                    mode="contained"
-                    onPress={() => {
-                      console.log("sdfg");
-                    }}
-                  ></Button>{" "}
-                </DataTable.Cell>
-                <DataTable.Cell></DataTable.Cell>
-              </DataTable.Row>
-            );
-          })
-        ) : (
-          <Loader loading={loading} />
-        )}
-
-      </DataTable>
+      <Table borderStyle={{ borderColor: "transparent" }}>
+        <Row
+          data={["העמותה", "כתובת", "פלאפון", "אימייל", "אינטרנט"]}
+          style={styles.row}
+          textStyle={styles.text}
+        />
+      </Table>
+      {loading ? (
+        <Loader loading={loading} />
+      ) : (
+        tableCol.map((rowData, index) => (
+          <Table key={index} borderStyle={{ borderColor: "transparent" }}>
+            <ScrollView>
+              <TableWrapper style={styles.row}>
+                {rowData.map((cellData, cellIndex) => (
+                  <Cell
+                    key={cellIndex}
+                    data={data(cellIndex, cellData)}
+                    textStyle={styles.text}
+                  />
+                ))}
+              </TableWrapper>
+            </ScrollView>
+          </Table>
+        ))
+      )}
       <EmergencyButton />
     </SafeAreaView>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: "100%",
-    height: "100%",
+    padding: 16,
+    paddingTop: 30,
+    backgroundColor: "#ff00d2",
+  },
+  head: { height: 40, backgroundColor: "#DF7EE8" },
+  text: { margin: 6 },
+  row: { flexDirection: "row", backgroundColor: "#C18EE9" },
+  btn: {
+    width: 35,
+    height: 35,
+    backgroundColor: "#8F69D4",
+    borderRadius: 2,
+    textAlign: "center",
   },
 });
