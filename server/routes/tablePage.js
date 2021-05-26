@@ -7,6 +7,7 @@ router.get("/tablePage", async function (req, res, next) {
   res.status(200).json(allAssociations);
 });
 
+
 router.post("/tablePage", function (req, res, next) {
 Associations.exists({ Name: req.body.Name }).then(condition=>{
   if (condition) {

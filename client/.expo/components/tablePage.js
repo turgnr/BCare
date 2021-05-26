@@ -9,8 +9,7 @@ import {
   TouchableOpacity,
   Alert
 } from "react-native";
-import {Button } from "react-native-paper";
-import { Table, TableWrapper, Row, Cell } from 'react-native-table-component';
+import {Button ,DataTable} from "react-native-paper";
 import axios from "axios";
 import EmergencyButton from "./EmergencyButton";
 
@@ -21,7 +20,6 @@ export default function tablePage({ navigation }) {
   const uri = "http://192.168.1.7:8081/tablePage";
   useEffect(() => {
     axios.get(uri).then((responseJson) => {
-      console.log(responseJson.data);
       setLoading(false);
       SetListofAssociations(responseJson.data);
     });
@@ -84,14 +82,7 @@ export default function tablePage({ navigation }) {
         ) : (
           <Loader loading={loading} />
         )}
-        {/* <DataTable.Pagination
-          page={1}
-          numberOfPages={3}
-          onPageChange={(page) => {
-            //console.log();
-          }}
-          label="1-2 of 6"
-        /> */}
+
       </DataTable>
       <EmergencyButton />
     </SafeAreaView>
