@@ -32,7 +32,7 @@ export default function EmergencyButton({ navigation }) {
 const styles = StyleSheet.create({
   fab: {
     position: "absolute",
-    margin: 16,
+    margin: 8,
     right: 0,
     bottom: 0,
   },

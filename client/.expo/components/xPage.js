@@ -12,26 +12,14 @@ import { Button, Avatar } from "react-native-paper";
 import EmergencyButton from "./EmergencyButton";
 
 export default function xPage({ navigation }) {
-  const uri = "http://192.168.1.7:8081/HomePage";
+  const uri = "http://192.168.1.9:8081/HomePage";
 
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.headerContainer}>B-care</Text>
-      <View>
-        <Avatar.Image
-          size={161}
-          source={require("E:/Repos/Bcare/client/assets/Stave.png")}
-          style={styles.imageAbout}
-        />
-        <Avatar.Image
-          size={161}
-          source={require("E:/Repos/Bcare/client/assets/Or.png")}
-          style={styles.imageAbout}
-        />
-      </View>
-      <ScrollView>
-        <View>
-          <Text style={{color:"green"}}>
+      <View style={{ backgroundColor: "red" }}>
+        <ScrollView>
+          <Text style={{ color: "white" }}>
             בשנים האחרונות חלה עלייה מטרידה במספר התלונות על אלימות במשפחה ועל
             אלימות נגד נשים ובפרט בתקופת הקורונה. מתחילת שנת 2020 נרצחו בישראל
             20 נשים. 12 מתוכן ע"י בני זוגן. אחת מכל שלוש נשים שנרצחו בידי בני
@@ -54,18 +42,43 @@ export default function xPage({ navigation }) {
             בשונה מהאפליקציה שלנו חיונית למקרים בהם המשתמשות חשות ברגע נתון
             סיכון ממשי. האפליקציה נתמכת במערכת האנדרואיד וה- iso .
           </Text>
+        </ScrollView>
+      </View>
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent:"space-evenly",
+          backgroundColor: "yellow",
+        }}
+      >
+        <View style={{ flexDirection: "column",margin:5, }}>
+          <Avatar.Image
+            size={80}
+            source={require("C:/Repos/BCare/client/assets/Stave.png")}
+            style={styles.imageAbout}
+          />
+          <Text>סתיו יעקובי Stave@gmail.com</Text>
         </View>
-      </ScrollView>
+        <View style={{ flexDirection: "column",justifyContent:"center" }}>
+          <Avatar.Image
+            size={80}
+            source={require("C:/Repos/BCare/client/assets/Or.png")}
+            style={styles.imageAbout}
+          />
+          <Text>אור עמר Orama@gmail.com</Text>
+        </View>
+      </View>
+      <EmergencyButton />
       <Button
         icon="pan_tool"
         mode="contained"
         onPress={() => {
           navigation.navigate("HomePage");
         }}
+        style={{ backgroundColor: "blue" }}
       >
         חזרה למסך הבית
       </Button>
-      <EmergencyButton />
     </SafeAreaView>
   );
 }
@@ -79,21 +92,16 @@ const styles = StyleSheet.create({
   headerContainer: {
     backgroundColor: "#8c6cce",
     color: "yellow",
-    fontSize: 20,
-    alignItems: "center",
-    justifyContent: "center",
+    fontSize: 35,
+    textAlign: "center",
     marginHorizontal: 20,
-    marginTop: 10,
+    shadowColor:"purple",
+    shadowOffset:{width:0,height:1},
+    shadowOpacity:0.2,
+    elevation:1
   },
   imageAbout: {
-    borderTopLeftRadius: 25,
-    borderTopRightRadius: 25,
-    height: "100%",
-    width: "100%",
-  },
-  biggray: {
-    color: "gray",
-    fontWeight: "bold",
-    fontSize: 30,
+    justifyContent:"center",
+    left:50
   },
 });

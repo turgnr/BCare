@@ -4,6 +4,7 @@ const Associations = require("../models/Associations");
 
 router.get("/tablePage", async function (req, res, next) {
   const allAssociations = await Associations.find({});
+  console.log("send all Associations");
   res.status(200).json(allAssociations);
 });
 
