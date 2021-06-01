@@ -23,6 +23,9 @@ useEffect(() => {
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView>
+      <Text>
+         {Nid} שלום
+      </Text>
         <Button
           icon="information-variant"
           mode="contained"
@@ -58,9 +61,6 @@ useEffect(() => {
           רשימת עמותות
         </Button>
       </SafeAreaView>
-      <Text>
-         {Nid} שלום
-      </Text>
       <EmergencyButton/>
     </SafeAreaView>
   );
