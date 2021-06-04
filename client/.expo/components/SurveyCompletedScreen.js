@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { Button } from "react-native-paper";
 
 const GREEN = "rgba(141,196,63,1)";
 const PURPLE = "rgba(108,48,237,1)";
@@ -73,6 +74,16 @@ export default class SurveyCompletedScreen extends Component {
             {/* <Text>Raw JSON: {JSON.stringify(this.props.navigation.getParam('surveyAnswers', {}))}</Text> */}
           </ScrollView>
         </View>
+        <Button
+        icon="pan_tool"
+        mode="contained"
+        onPress={() => {
+          navigation.navigate("HomePage");
+        }}
+        style={{ backgroundColor: "blue" }}
+      >
+        חזרה למסך הבית
+      </Button>
       </View>
     );
   }
