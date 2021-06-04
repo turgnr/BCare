@@ -35,8 +35,11 @@ const survey = [
   {
       questionType: 'SelectionGroup',
       questionText:
-          'Naturally Simple Survey also has multiple choice questions. By default they acts like checkboxes, answers can be selected and deselected.\n\nWhat is your favorite pet?',
+          'Naturally Simple Survey also has multipleted.\n\none press moved next',
       questionId: 'favoritePet',
+      questionSettings:{
+        autoAdvance: true
+      },
       options: [
           {
               optionText: 'Dogs',
@@ -107,11 +110,11 @@ const survey = [
   {
       questionType: 'MultipleSelectionGroup',
       questionText:
-          'Simple Survey can auto advance after a question has been answered. Select two things you do to relax:',
+          'שאלה',
       questionId: 'relax',
       questionSettings: {
           maxMultiSelect: 2,
-          minMultiSelect: 2,
+          minMultiSelect: 1,
           autoAdvance: true,
       },
       options: [
@@ -265,6 +268,7 @@ export default class QuestionPage extends Component {
     const answersAsObj = {};
     for (const elem of infoQuestionsRemoved) {
       answersAsObj[elem.questionId] = elem.value;
+      console.log('answersAsObj[elem.questionId]: ',answersAsObj[elem.questionId],'   elem.value:', elem.value);
     }
 
     this.props.navigation.navigate("SurveyCompletedScreen", {
@@ -289,6 +293,7 @@ export default class QuestionPage extends Component {
         break;
       }
       default:
+        console.log('answer.questionId: ',answer.questionId);
         break;
     }
   }
@@ -303,7 +308,7 @@ export default class QuestionPage extends Component {
           onPress={onPress}
           disabled={!enabled}
           backgroundColor={GREEN}
-          title={"Previous"}
+          title={"אחורה"}
         />
       </View>
     );
@@ -319,7 +324,7 @@ export default class QuestionPage extends Component {
           onPress={onPress}
           disabled={!enabled}
           backgroundColor={GREEN}
-          title={"Next"}
+          title={"הבא"}
         />
       </View>
     );

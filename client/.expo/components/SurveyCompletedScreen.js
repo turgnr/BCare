@@ -56,8 +56,7 @@ export default class SurveyCompletedScreen extends Component {
               {answers.favoriteFoods[1].value}
             </Text>
             <Text style={styles.questionText}>
-              How you relax: {answers.relax[0].value} and{" "}
-              {answers.relax[1].value}
+              How you relax: {answers.relax[0].value}
             </Text>
             <Text style={styles.questionText}>
               When confronted with a radio button you picked:{" "}
@@ -71,14 +70,14 @@ export default class SurveyCompletedScreen extends Component {
               {answers.multipleDefaults[0].value} and the{" "}
               {answers.multipleDefaults[1].value}
             </Text>
-            {/* <Text>Raw JSON: {JSON.stringify(this.props.navigation.getParam('surveyAnswers', {}))}</Text> */}
+            <Text>Raw JSON: {JSON.stringify(this.props.route.params.answers)}</Text>
           </ScrollView>
         </View>
         <Button
         icon="pan_tool"
         mode="contained"
         onPress={() => {
-          navigation.navigate("HomePage");
+          this.props.navigation.navigate("HomePage");
         }}
         style={{ backgroundColor: "blue" }}
       >

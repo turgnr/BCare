@@ -50,7 +50,7 @@ export function RootStack() {
       <Stack.Screen
         name="SurveyCompletedScreen"
         component={SurveyCompletedScreen}
-        options={{ title: "מידע" }}
+        options={{ title: "תוצאות" }}
       />
     </Stack.Navigator>
   );

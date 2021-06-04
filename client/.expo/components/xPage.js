@@ -97,9 +97,6 @@ const styles = StyleSheet.create({
     fontSize: 35,
     textAlign: "center",
     marginHorizontal: 20,
-    shadowColor:"purple",
-    shadowOffset:{width:0,height:1},
-    shadowOpacity:0.2,
     elevation:1
   },
   imageAbout: {
