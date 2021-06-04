@@ -10,6 +10,7 @@ import {
 
 import { Button, TextInput } from "react-native-paper";
 import EmergencyButton from "./EmergencyButton";
+import ReportButton from "./ReportButton";
 
 export default function infoPage({ navigation }) {
   const [UserName, setuserName] = useState("user-Name");
@@ -61,6 +62,7 @@ Lorem Ipsum הוא פשוט טקסט גולמי של תעשיית ההדפסה �
         </Button>
       </ScrollView>
       <EmergencyButton/>
+      <ReportButton/>
     </View>
   );
 }

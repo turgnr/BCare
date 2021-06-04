@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   SafeAreaView,
   StyleSheet,
@@ -9,23 +9,16 @@ import {
 
 import { Button } from "react-native-paper";
 import EmergencyButton from "./EmergencyButton";
+import ReportButton from "./ReportButton";
 
 export default function HomePage({ navigation, route }) {
   const { a } = route.params; //the name of user are log-in
-  const [Nid, setid] = useState(a);
+  const [Nid, setid] = useState(a.UserName);
 
-useEffect(() => {
-  Nid? Nid:setid(a);
-  return () => {
-    
-  }
-}, [])
   return (
     <SafeAreaView style={styles.container}>
       <SafeAreaView>
-      <Text>
-         {Nid} שלום
-      </Text>
+        <Text>{Nid} שלום</Text>
         <Button
           icon="information-variant"
           mode="contained"
@@ -34,15 +27,17 @@ useEffect(() => {
           מידע
         </Button>
       </SafeAreaView>
-      <SafeAreaView>
-        <Button
-          icon="account-question"
-          mode="contained"
-          onPress={() => navigation.navigate("QuestionPage")}
-        >
-          שאלון 
-        </Button>
-      </SafeAreaView>
+      {a.isValid ? (
+        <SafeAreaView>
+          <Button
+            icon="account-question"
+            mode="contained"
+            onPress={() => navigation.navigate("QuestionPage")}
+          >
+            שאלון
+          </Button>
+        </SafeAreaView>
+      ) : null}
       <SafeAreaView>
         <Button
           icon="account-circle"
@@ -53,7 +48,7 @@ useEffect(() => {
         </Button>
       </SafeAreaView>
       <SafeAreaView>
-        <Button 
+        <Button
           icon="heart-multiple"
           mode="contained"
           onPress={() => navigation.navigate("tablePage")}
@@ -61,7 +56,8 @@ useEffect(() => {
           רשימת עמותות
         </Button>
       </SafeAreaView>
-      <EmergencyButton/>
+      <EmergencyButton />
+      <ReportButton />
     </SafeAreaView>
   );
 }

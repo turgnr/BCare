@@ -10,9 +10,10 @@ import {
 
 import { Button, Avatar } from "react-native-paper";
 import EmergencyButton from "./EmergencyButton";
+import ReportButton from "./ReportButton";
 
 export default function xPage({ navigation }) {
-  const uri = "http://192.168.1.9:8081/HomePage";
+  const uri = "http://192.168.1.7:8081/HomePage";
 
   return (
     <SafeAreaView style={styles.container}>
@@ -54,7 +55,7 @@ export default function xPage({ navigation }) {
         <View style={{ flexDirection: "column",margin:5, }}>
           <Avatar.Image
             size={80}
-            source={require("C:/Repos/BCare/client/assets/Stave.png")}
+            source={require("E:/Repos/BCare/client/assets/Stave.png")}
             style={styles.imageAbout}
           />
           <Text>סתיו יעקובי Stave@gmail.com</Text>
@@ -62,13 +63,14 @@ export default function xPage({ navigation }) {
         <View style={{ flexDirection: "column",justifyContent:"center" }}>
           <Avatar.Image
             size={80}
-            source={require("C:/Repos/BCare/client/assets/Or.png")}
+            source={require("E:/Repos/BCare/client/assets/Or.png")}
             style={styles.imageAbout}
           />
           <Text>אור עמר Orama@gmail.com</Text>
         </View>
       </View>
       <EmergencyButton />
+      <ReportButton/>
       <Button
         icon="pan_tool"
         mode="contained"
