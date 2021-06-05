@@ -12,7 +12,6 @@ const defaultAnswers = {
 export default class SurveyCompletedScreen extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props.route);
   }
 
   static navigationOptions = () => {
@@ -37,40 +36,49 @@ export default class SurveyCompletedScreen extends Component {
       <View style={styles.background}>
         <View style={styles.container}>
           <ScrollView>
-            <Text style={styles.questionText}>The results are in!</Text>
+            <Text style={styles.questionText}>התוצאות הם:</Text>
             <Text style={styles.questionText}>
-              Your favorite color: {answers.favoriteColor}
+             How you {answers.Q1.questionId}: {answers.Q1[0].value}
             </Text>
             <Text style={styles.questionText}>
-              Your favorite number: {answers.favoriteNumber}
+             How you {answers.Q2.questionId}: {answers.Q2[0].value}
             </Text>
             <Text style={styles.questionText}>
-              You said you can juggle {answers.jugglingBalls} balls at once
-              {answers.jugglingBalls > 1 ? "!" : "."}
+             How you {answers.Q3.questionId}: {answers.Q3[0].value}
             </Text>
             <Text style={styles.questionText}>
-              Your favorite pet: {answers.favoritePet.value}
+             How you {answers.Q4.questionId}: {answers.Q4[0].value}
             </Text>
             <Text style={styles.questionText}>
-              Your favorite foods: {answers.favoriteFoods[0].value} and{" "}
-              {answers.favoriteFoods[1].value}
+             How you {answers.Q5.questionId}: {answers.Q5[0].value}
             </Text>
             <Text style={styles.questionText}>
-              How you relax: {answers.relax[0].value}
+               How you {answers.Q6.questionId}: {answers.Q6[0].value}
             </Text>
             <Text style={styles.questionText}>
-              When confronted with a radio button you picked:{" "}
-              {answers.radio.value}
+             How you {answers.Q7.questionId}: {answers.Q7[0].value}
             </Text>
             <Text style={styles.questionText}>
-              When given a default you chose: the {answers.singleDefault.value}
+             How you {answers.Q8.questionId}: {answers.Q8[0].value}
             </Text>
             <Text style={styles.questionText}>
-              When given a multiple defaults you chose: the{" "}
-              {answers.multipleDefaults[0].value} and the{" "}
-              {answers.multipleDefaults[1].value}
+            How you {answers.Q9.questionId}: {answers.Q9[0].value}
             </Text>
-            <Text>Raw JSON: {JSON.stringify(this.props.route.params.answers)}</Text>
+            <Text style={styles.questionText}>
+            How you {answers.Q10.questionId}: {answers.Q10[0].value}
+            </Text>
+            <Text style={styles.questionText}>
+            How you {answers.Q11.questionId}: {answers.Q11[0].value}
+            </Text>
+            <Text style={styles.questionText}>
+            How you {answers.Q12.questionId}: {answers.Q12[0].value}
+            </Text>
+            <Text style={styles.questionText}>
+            How you {answers.Q13.questionId}: {answers.Q13[0].value}
+            </Text>
+            <Text style={styles.questionText}>
+            How you {answers.Q14.questionId}: {answers.Q14[0].value}
+            </Text>
           </ScrollView>
         </View>
         <Button
