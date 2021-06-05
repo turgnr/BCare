@@ -38,46 +38,46 @@ export default class SurveyCompletedScreen extends Component {
           <ScrollView>
             <Text style={styles.questionText}>התוצאות הם:</Text>
             <Text style={styles.questionText}>
-             How you {answers.Q1.questionId}: {answers.Q1[0].value}
+             How you {answers.Q1.questionText}: {answers.Q1[0].value}
             </Text>
             <Text style={styles.questionText}>
-             How you {answers.Q2.questionId}: {answers.Q2[0].value}
+             How you {answers.Q2.questionText}: {answers.Q2[0].value}
             </Text>
             <Text style={styles.questionText}>
-             How you {answers.Q3.questionId}: {answers.Q3[0].value}
+             How you {answers.Q3.questionText}: {answers.Q3[0].value}
             </Text>
             <Text style={styles.questionText}>
-             How you {answers.Q4.questionId}: {answers.Q4[0].value}
+             How you {answers.Q4.questionText}: {answers.Q4[0].value}
             </Text>
             <Text style={styles.questionText}>
-             How you {answers.Q5.questionId}: {answers.Q5[0].value}
+             How you {answers.Q5.questionText}: {answers.Q5[0].value}
             </Text>
             <Text style={styles.questionText}>
-               How you {answers.Q6.questionId}: {answers.Q6[0].value}
+               How you {answers.Q6.questionText}: {answers.Q6[0].value}
             </Text>
             <Text style={styles.questionText}>
-             How you {answers.Q7.questionId}: {answers.Q7[0].value}
+             How you {answers.Q7.questionText}: {answers.Q7[0].value}
             </Text>
             <Text style={styles.questionText}>
-             How you {answers.Q8.questionId}: {answers.Q8[0].value}
+             How you {answers.Q8.questionText}: {answers.Q8[0].value}
             </Text>
             <Text style={styles.questionText}>
             How you {answers.Q9.questionId}: {answers.Q9[0].value}
             </Text>
             <Text style={styles.questionText}>
-            How you {answers.Q10.questionId}: {answers.Q10[0].value}
+            How you {answers.Q10.questionText}: {answers.Q10[0].value}
             </Text>
             <Text style={styles.questionText}>
-            How you {answers.Q11.questionId}: {answers.Q11[0].value}
+            How you {answers.Q11.questionText}: {answers.Q11[0].value}
             </Text>
             <Text style={styles.questionText}>
-            How you {answers.Q12.questionId}: {answers.Q12[0].value}
+            How you {answers.Q12.questionText}: {answers.Q12[0].value}
             </Text>
             <Text style={styles.questionText}>
-            How you {answers.Q13.questionId}: {answers.Q13[0].value}
+            How you {answers.Q13.questionText}: {answers.Q13[0].value}
             </Text>
             <Text style={styles.questionText}>
-            How you {answers.Q14.questionId}: {answers.Q14[0].value}
+            How you {answers.Q14.questionText}: {answers.Q14[0].value}
             </Text>
           </ScrollView>
         </View>
