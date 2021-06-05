@@ -785,7 +785,7 @@ export default class QuestionPage extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { backgroundColor: PURPLE, answersSoFar: "" ,numberofQ:0,res1:0,res2:0,res3:0,res4:0,res5:0,res6:0};
+    this.state = { backgroundColor: PURPLE, answersSoFar: "" ,numberofQ:1,res1:0,res2:0,res3:0,res4:0,res5:0,res6:0};
   }
 
   onSurveyFinished(answers) {
@@ -824,7 +824,13 @@ export default class QuestionPage extends Component {
       }
 
     this.props.navigation.navigate("SurveyCompletedScreen", {
-      answers: answersAsObj,
+      answers: {res1:this.state.res1,
+        res2:this.state.res2,
+        res3:this.state.res3,
+        res4:this.state.res4,
+        res5:this.state.res5,
+        res6:this.state.res6,
+      }
     });
   }
 
@@ -838,8 +844,19 @@ export default class QuestionPage extends Component {
       answersSoFar: JSON.stringify(this.surveyRef.getAnswers(), 2),
       numberofQ:this.state.numberofQ + 1,
     });
-    console.log('this is the '+this.state.numberofQ+' answer');
-    console.log('Q? => '+answer.questionId,' value=>',answer.value);
+    if(numberofQ<11)
+    {
+      //! edit the logical for get the result
+      /*
+      1-10 כללי
+      11-16 פיזית
+      17-18 טכנולוגית
+      19-22 מינית
+      23-27 נפשית.מילולית
+      28-30 כלכלית
+       */
+    }
+   
   }
 
   renderPreviousButton(onPress, enabled) {
