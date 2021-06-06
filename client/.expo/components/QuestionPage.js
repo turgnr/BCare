@@ -1012,8 +1012,7 @@ export default class QuestionPage extends Component {
         </View>
 
         <ScrollView style={styles.answersContainer}>
-          <Text style={{ textAlign: "center" }}>JSON output</Text>
-          <Text>ענית על {this.state.numberofQ - 1} מתוך 30 שאלות</Text>
+          <Text style={{ textAlign: "center" }}>ענית על {this.state.numberofQ - 1} מתוך 30 שאלות</Text>
           <ProgressBar progress={this.state.numberofQ/30} color={Colors.red800} />
         </ScrollView>
       </View>
