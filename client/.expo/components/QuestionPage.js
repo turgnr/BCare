@@ -11,7 +11,7 @@ import ReportButton from "./ReportButton";
 const survey = [
   {
       questionType: 'Info',
-      questionText: 'Welcome to the React Native Simple Survey Example app! Tap next to continue'
+      questionText: 'שאלון זה אינו מהווה תחילף לייעוץ מקצועי \n והוא משמ לצרכי הדגמה בלבד'
   },
   {
       questionType: 'MultipleSelectionGroup',
