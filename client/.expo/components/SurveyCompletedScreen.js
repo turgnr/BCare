@@ -12,7 +12,7 @@ const defaultAnswers = {
 export default class SurveyCompletedScreen extends Component {
   constructor(props) {
     super(props);
-    console.log('answers',this.props.route.params.answers);
+    console.log("answers", this.props.route.params.answers);
   }
 
   static navigationOptions = () => {
@@ -32,32 +32,67 @@ export default class SurveyCompletedScreen extends Component {
 
   render() {
     const { answers } = this.props.route.params;
-
+    /*
+      1-10 כללי {answers.res1}
+      11-16 פיזית {answers.res2}
+      17-18 טכנולוגית {answers.res3}
+      19-22 מינית {answers.res4}
+      23-27 נפשית.מילולית {answers.res5}
+      28-30 כלכלית {answers.res6}
+       */
     return (
       <View style={styles.background}>
         <View style={styles.container}>
           <ScrollView>
             <Text style={styles.questionText}>התוצאות הם:</Text>
             <Text style={styles.questionText}>
-             the result are: {answers.res1}
-             ,{answers.res2}
-             ,{answers.res3}
-             ,{answers.res4}
-             ,{answers.res5}
-             ,{answers.res6}
+              השאלון נבנה על בסיס מאגרים הנמצאים באינטרנט השימוש בשאלון הוא על
+              אחריותך בלבד ונועד לצורכי הדגמה :על פי תוצאות השאלון הינך
             </Text>
+            {answers.res1 > 9 ? (
+              <Text style={styles.questionText}>אלימות כל שהיא</Text>
+            ) : null}
+            {answers.res1 > 9 ? (
+              <Text style={styles.questionText}>ובסכנה מידיית</Text>
+            ) : null}
+            {answers.res2 > 9 ? (
+              <Text style={styles.questionText}>אלימות של פיזית</Text>
+            ) : null}
+            {answers.res3 > 9 ? (
+              <Text style={styles.questionText}>אלימות טכנולוגית</Text>
+            ) : null}
+            {answers.res4 > 9 ? (
+              <Text style={styles.questionText}>אלימות מינית</Text>
+            ) : null}
+            {answers.res5 > 9 ? (
+              <Text style={styles.questionText}>אלימות נפשית\מילולית</Text>
+            ) : null}
+            {answers.res6 > 9 ? (
+              <Text style={styles.questionText}>אלימות כלכלית</Text>
+            ) : null}
+            {answers.res1 < 3 &&
+            answers.res2 < 1 &&
+            answers.res3 < 1 &&
+            answers.res4 < 1 &&
+            answers.res5 < 1 &&
+            answers.res6 < 1 ? (
+              <Text style={styles.questionText}>
+                לא נמצאת תחת שום קטגוריה של אלימות אם הינך מרגישה בכל זאת מאוימת
+                פני לגורמי המקצוע או בעמוד עמותות בדף הבית
+              </Text>
+            ) : null}
           </ScrollView>
         </View>
         <Button
-        icon="pan_tool"
-        mode="contained"
-        onPress={() => {
-          this.props.navigation.navigate("HomePage");
-        }}
-        style={{ backgroundColor: "blue" }}
-      >
-        חזרה למסך הבית
-      </Button>
+          icon="pan_tool"
+          mode="contained"
+          onPress={() => {
+            this.props.navigation.navigate("HomePage");
+          }}
+          style={{ backgroundColor: "blue" }}
+        >
+          חזרה למסך הבית
+        </Button>
       </View>
     );
   }

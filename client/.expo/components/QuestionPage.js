@@ -1,7 +1,7 @@
 import React, { Component, useEffect } from "react";
 import { StyleSheet,Button, TextInput,  ScrollView, Text,View } from 'react-native';
+import { ProgressBar ,Colors } from "react-native-paper";
 import { SimpleSurvey } from 'react-native-simple-survey';
-import { COLORS } from '../validColors';
 
 const GREEN = 'rgba(141,196,63,1)';
 const PURPLE = 'rgba(108,48,237,1)';
@@ -842,22 +842,21 @@ export default class QuestionPage extends Component {
   onAnswerSubmitted(answer) {
     this.setState({
       answersSoFar: JSON.stringify(this.surveyRef.getAnswers(), 2),
-      numberofQ:this.state.numberofQ + 1,
+      numberofQ: this.state.numberofQ + 1,
     });
-    if(numberofQ<11)
+    if(this.state.numberofQ>0 && this.state.numberofQ<11)
     {
-      //! edit the logical for get the result
-      /*
-      1-10 כללי
-      11-16 פיזית
-      17-18 טכנולוגית
-      19-22 מינית
-      23-27 נפשית.מילולית
-      28-30 כלכלית
-       */
+      
+      this.state.res1 = this.state.res1 +answer.value[0].value;
     }
-   
-  }
+    else if(this.state.numberofQ>10 && this.state.numberofQ<17){this.state.res2 = this.state.res2 +answer.value[0].value;}
+    else if(this.state.numberofQ>16 && this.state.numberofQ<19) {this.state.res3 = this.state.res3 +answer.value[0].value;}
+    else if(this.state.numberofQ>19 && this.state.numberofQ<23) {this.state.res4 = this.state.res4 +answer.value[0].value;}
+    else if(this.state.numberofQ>22 && this.state.numberofQ<28) {this.state.res5 = this.state.res5 +answer.value[0].value;}
+    else if(this.state.numberofQ>28 && this.state.numberofQ<31)
+    {
+      this.state.res6 = this.state.res6 +answer.value[0].value; 
+    }  }
 
   renderPreviousButton(onPress, enabled) {
     return (
@@ -1014,7 +1013,8 @@ export default class QuestionPage extends Component {
 
         <ScrollView style={styles.answersContainer}>
           <Text style={{ textAlign: "center" }}>JSON output</Text>
-          <Text>{this.state.answersSoFar}</Text>
+          <Text>ענית על {this.state.numberofQ - 1} מתוך 30 שאלות</Text>
+          <ProgressBar progress={this.state.numberofQ/30} color={Colors.red800} />
         </ScrollView>
       </View>
     );
