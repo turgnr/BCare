@@ -11,7 +11,7 @@ import ReportButton from "./ReportButton";
 const survey = [
   {
       questionType: 'Info',
-      questionText: 'שאלון זה אינו מהווה תחילף לייעוץ מקצועי \n והוא משמ לצרכי הדגמה בלבד'
+      questionText: 'שאלון זה אינו מהווה תחילף לייעוץ מקצועי \n והוא משמש לצרכי הדגמה בלבד'
   },
   {
       questionType: 'MultipleSelectionGroup',

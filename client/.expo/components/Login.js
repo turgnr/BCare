@@ -72,7 +72,6 @@ export default function Login({ navigation }) {
                 },
               })
               .then(function (response) {
-                console.log('response',response.data.userapproved);
                 if(response.status == 200)
                 {
                   navigation.navigate("HomePage", {
@@ -107,7 +106,7 @@ export default function Login({ navigation }) {
         mode="contained"
         onPress={() => {
           navigation.navigate("HomePage", {
-            a: user ? user : "אורחת",
+            a: "אורחת",
           });
         }}
       >

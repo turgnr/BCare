@@ -33,12 +33,12 @@ export default class SurveyCompletedScreen extends Component {
   render() {
     const { answers } = this.props.route.params;
     /*
-      1-10 כללי {answers.res1}
-      11-16 פיזית {answers.res2}
-      17-18 טכנולוגית {answers.res3}
-      19-22 מינית {answers.res4}
-      23-27 נפשית.מילולית {answers.res5}
-      28-30 כלכלית {answers.res6}
+      1-10 כללי res1
+      11-16 פיזית res2
+      17-18 טכנולוגית res3
+      19-22 מינית res4
+      23-27 נפשית.מילולית res5
+      28-30 כלכלית res6
        */
     return (
       <View style={styles.background}>
@@ -49,33 +49,36 @@ export default class SurveyCompletedScreen extends Component {
               השאלון נבנה על בסיס מאגרים הנמצאים באינטרנט השימוש בשאלון הוא על
               אחריותך בלבד ונועד לצורכי הדגמה :על פי תוצאות השאלון הינך
             </Text>
-            {answers.res1 > 9 ? (
+            {answers.res1 > 3 ? (
               <Text style={styles.questionText}>אלימות כל שהיא</Text>
             ) : null}
+            {answers.res1 > 3 && answers.res1 < 9 ? (
+              <Text style={styles.questionText}>ובסכנה</Text>
+            ) : null}
             {answers.res1 > 9 ? (
-              <Text style={styles.questionText}>ובסכנה מידיית</Text>
+              <Text style={styles.questionText}>ובסכנה גבוהה</Text>
             ) : null}
-            {answers.res2 > 9 ? (
-              <Text style={styles.questionText}>אלימות של פיזית</Text>
+            {answers.res2 >= 5 ? (
+              <Text style={styles.questionText}>אלימות פיזית</Text>
             ) : null}
-            {answers.res3 > 9 ? (
+            {answers.res3 > 3 ? (
               <Text style={styles.questionText}>אלימות טכנולוגית</Text>
             ) : null}
-            {answers.res4 > 9 ? (
+            {answers.res4 >= 5 ? (
               <Text style={styles.questionText}>אלימות מינית</Text>
             ) : null}
-            {answers.res5 > 9 ? (
+            {answers.res5 >= 5 ? (
               <Text style={styles.questionText}>אלימות נפשית\מילולית</Text>
             ) : null}
-            {answers.res6 > 9 ? (
+            {answers.res6 > 4 ? (
               <Text style={styles.questionText}>אלימות כלכלית</Text>
             ) : null}
             {answers.res1 < 3 &&
-            answers.res2 < 1 &&
-            answers.res3 < 1 &&
-            answers.res4 < 1 &&
-            answers.res5 < 1 &&
-            answers.res6 < 1 ? (
+            answers.res2 < 6 &&
+            answers.res3 < 4 &&
+            answers.res4 < 6 &&
+            answers.res5 < 6 &&
+            answers.res6 < 5 ? (
               <Text style={styles.questionText}>
                 לא נמצאת תחת שום קטגוריה של אלימות אם הינך מרגישה בכל זאת מאוימת
                 פני לגורמי המקצוע או בעמוד עמותות בדף הבית

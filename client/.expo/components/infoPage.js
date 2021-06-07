@@ -13,57 +13,58 @@ import EmergencyButton from "./EmergencyButton";
 import ReportButton from "./ReportButton";
 
 export default function infoPage({ navigation }) {
-  const [UserName, setuserName] = useState("user-Name");
-  const [Password, setPass] = useState("pass-");
-  const [Nuser, setNuser] = useState("user-Name");
-  const [Npass, setNpass] = useState("pass");
-  const uri = "http://192.168.1.9:8081/HomePage";
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <ScrollView>
-        <TextInput
-          label="שם משתמש"
-          value={UserName}
-          onChangeText={(UserName) => setuserName(UserName)}
-        />
-        <TextInput
-          label="סיסמא"
-          value={Password}
-          onChangeText={(Password) => setPass(Password)}
-        />
-        <Text style={{
-          fontWeight: 'bold',
-          textAlign:'center',
-
-        }}>
-        למה אנו משתמשים בזה?
-זוהי עובדה מבוססת שדעתו של הקורא תהיה מוסחת על ידי טקטס קריא כאשר הוא יביט בפריסתו. המטרה בשימוש ב-Lorem Ipsum הוא שיש לו פחות או יותר תפוצה של אותיות, בניגוד למלל '� יסוי � יסוי � יסוי', ונותן חזות קריאה יותר.הרבה הוצאות מחשבים ועורכי דפי אינטרנט משתמשים כיום ב-Lorem Ipsum כטקסט ברירת המחדל שלהם, וחיפוש של 'lorem ipsum' יחשוף אתרים רבים בראשית דרכם.גרסאות רבות נוצרו במהלך השנים, לעתים בשגגה לעיתים במכוון (זריקת בדיחות וכדומה).
-מה זה Lorem Ipsum?
-Lorem Ipsum הוא פשוט טקסט גולמי של תעשיית ההדפסה וההקלדה. Lorem Ipsum היה טקסט סטנדרטי עוד במאה ה-16, כאשר הדפסה לא ידועה לקחה מגש של דפוס ועירבלה אותו כדי ליצור סוג של ספר דגימה. ספר זה שרד לא רק חמש מאות שנים אלא גם את הקפיצה לתוך ההדפסה האלקטרונית, ונותר כמו שהוא ביסודו. ספר זה הפך פופולרי יותר בשנות ה-60 עם ההוצאה לאור של גליון פונטי המכיל פסקאות של Lorem Ipsum. ועוד יותר לאחרונה עם פרסום תוכנות המחשב האישי כגון Aldus page maker שמכיל גרסאות של Lorem Ipsum.
-למה אנו משתמשים בזה?
-זוהי עובדה מבוססת שדעתו של הקורא תהיה מוסחת על ידי טקטס קריא כאשר הוא יביט בפריסתו. המטרה בשימוש ב-Lorem Ipsum הוא שיש לו פחות או יותר תפוצה של אותיות, בניגוד למלל '� יסוי � יסוי � יסוי', ונותן חזות קריאה יותר.הרבה הוצאות מחשבים ועורכי דפי אינטרנט משתמשים כיום ב-Lorem Ipsum כטקסט ברירת המחדל שלהם, וחיפוש של 'lorem ipsum' יחשוף אתרים רבים בראשית דרכם.גרסאות רבות נוצרו במהלך השנים, לעתים בשגגה לעיתים במכוון (זריקת בדיחות וכדומה).
-מה זה Lorem Ipsum?
-Lorem Ipsum הוא פשוט טקסט גולמי של תעשיית ההדפסה וההקלדה. Lorem Ipsum היה טקסט סטנדרטי עוד במאה ה-16, כאשר הדפסה לא ידועה לקחה מגש של דפוס ועירבלה אותו כדי ליצור סוג של ספר דגימה. ספר זה שרד לא רק חמש מאות שנים אלא גם את הקפיצה לתוך ההדפסה האלקטרונית, ונותר כמו שהוא ביסודו. ספר זה הפך פופולרי יותר בשנות ה-60 עם ההוצאה לאור של גליון פונטי המכיל פסקאות של Lorem Ipsum. ועוד יותר לאחרונה עם פרסום תוכנות המחשב האישי כגון Aldus page maker שמכיל גרסאות של Lorem Ipsum.
-למה אנו משתמשים בזה?
-זוהי עובדה מבוססת שדעתו של הקורא תהיה מוסחת על ידי טקטס קריא כאשר הוא יביט בפריסתו. המטרה בשימוש ב-Lorem Ipsum הוא שיש לו פחות או יותר תפוצה של אותיות, בניגוד למלל '� יסוי � יסוי � יסוי', ונותן חזות קריאה יותר.הרבה הוצאות מחשבים ועורכי דפי אינטרנט משתמשים כיום ב-Lorem Ipsum כטקסט ברירת המחדל שלהם, וחיפוש של 'lorem ipsum' יחשוף אתרים רבים בראשית דרכם.גרסאות רבות נוצרו במהלך השנים, לעתים בשגגה לעיתים במכוון (זריקת בדיחות וכדומה).
-מה זה Lorem Ipsum?
-Lorem Ipsum הוא פשוט טקסט גולמי של תעשיית ההדפסה וההקלדה. Lorem Ipsum היה טקסט סטנדרטי עוד במאה ה-16, כאשר הדפסה לא ידועה לקחה מגש של דפוס ועירבלה אותו כדי ליצור סוג של ספר דגימה. ספר זה שרד לא רק חמש מאות שנים אלא גם את הקפיצה לתוך ההדפסה האלקטרונית, ונותר כמו שהוא ביסודו. ספר זה הפך פופולרי יותר בשנות ה-60 עם ההוצאה לאור של גליון פונטי המכיל פסקאות של Lorem Ipsum. ועוד יותר לאחרונה עם פרסום תוכנות המחשב האישי כגון Aldus page maker שמכיל גרסאות של Lorem Ipsum.
-
+        <Text style={styles.headerContainer}>מידע משפטי</Text>
+        <Text style={styles.warnings}>
+          המידע באפליקציה נאסף ממקורות המפורטים מטה השימוש במידע באחריותך בלבד
         </Text>
+        <View style={{ backgroundColor: "red" }}>
+          <Text style={{ color: "white", marginHorizontal: 5, fontSize: 22 }}>
+          מידע 1
+          </Text>
+        </View>
+        <View style={{ backgroundColor: "red" }}>
+          <Text style={{ color: "white", marginHorizontal: 5, fontSize: 22 }}>
+            מידע 2
+          </Text>
+        </View>
+        <View style={{ backgroundColor: "red" }}>
+          <Text style={{ color: "white", marginHorizontal: 5, fontSize: 22 }}>
+            מידע 3
+          </Text>
+        </View>
+        <View style={{ backgroundColor: "red" }}>
+          <Text style={{ color: "white", marginHorizontal: 5, fontSize: 22 }}>
+            מידע 4
+          </Text>
+        </View>
+        <View style={{ backgroundColor: "red" }}>
+          <Text style={{ color: "white", marginHorizontal: 5, fontSize: 22 }}>
+          מידע 5
+          </Text>
+        </View>
+        <View style={{ backgroundColor: "red" }}>
+          <Text style={{ color: "white", marginHorizontal: 5, fontSize: 22 }}>
+           מידע 6
+          </Text>
+        </View>
         <Button
           icon="pan_tool"
           mode="contained"
           onPress={() => {
             navigation.navigate("HomePage");
           }}
+          style={{ backgroundColor: "blue" }}
         >
-          לדף הבית
+          חזרה למסך הבית
         </Button>
       </ScrollView>
-      <EmergencyButton/>
-      <ReportButton/>
-    </View>
+      <EmergencyButton />
+      <ReportButton />
+    </SafeAreaView>
   );
 }
 
@@ -73,4 +74,20 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
   },
+  warnings: {
+    color: "black",
+    fontSize: 20,
+    textAlign: "center",
+    marginHorizontal: 20,
+    elevation: 1,
+    fontWeight: "bold",
+  },
+  headerContainer: {
+    backgroundColor: "#8c6cce",
+    color: "yellow",
+    fontSize: 35,
+    textAlign: "center",
+    marginHorizontal: 20,
+    elevation: 1,
+  }
 });

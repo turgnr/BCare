@@ -36,7 +36,7 @@ export function RootStack() {
         component={QuestionPage}
         options={{ title: "שאלון" }}
       />
-      <Stack.Screen name="xPage" component={xPage} />
+      <Stack.Screen name="xPage" component={xPage} options={{ title: "אודות ומקורות" }} />
       <Stack.Screen
         name="tablePage"
         component={tablePage}

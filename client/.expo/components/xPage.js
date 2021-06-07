@@ -17,10 +17,13 @@ export default function xPage({ navigation }) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.headerContainer}>B-care</Text>
-      <View style={{ backgroundColor: "red" }}>
-        <ScrollView>
-          <Text style={{ color: "white" }}>
+      <ScrollView>
+        <Text style={styles.headerContainer}>B-care</Text>
+        <Text style={styles.warnings}>
+          המידע באפליקציה נאסף ממקורות המפורטים מטה השימוש במידע באחריותך בלבד
+        </Text>
+        <View style={{ backgroundColor: "red" }}>
+          <Text style={{ color: "white", marginHorizontal: 5,fontSize: 22, }}>
             בשנים האחרונות חלה עלייה מטרידה במספר התלונות על אלימות במשפחה ועל
             אלימות נגד נשים ובפרט בתקופת הקורונה. מתחילת שנת 2020 נרצחו בישראל
             20 נשים. 12 מתוכן ע"י בני זוגן. אחת מכל שלוש נשים שנרצחו בידי בני
@@ -43,44 +46,53 @@ export default function xPage({ navigation }) {
             בשונה מהאפליקציה שלנו חיונית למקרים בהם המשתמשות חשות ברגע נתון
             סיכון ממשי. האפליקציה נתמכת במערכת האנדרואיד וה- iso .
           </Text>
-        </ScrollView>
-      </View>
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent:"space-evenly",
-          backgroundColor: "yellow",
-        }}
-      >
-        <View style={{ flexDirection: "column",margin:5, }}>
-          <Avatar.Image
-            size={80}
-            source={require("E:/Repos/BCare/client/assets/Stave.png")}
-            style={styles.imageAbout}
-          />
-          <Text>סתיו יעקובי Stave@gmail.com</Text>
         </View>
-        <View style={{ flexDirection: "column",justifyContent:"center" }}>
-          <Avatar.Image
-            size={80}
-            source={require("E:/Repos/BCare/client/assets/Or.png")}
-            style={styles.imageAbout}
-          />
-          <Text>אור עמר Orama@gmail.com</Text>
+        <Text style={styles.headerContainer}>המקורות</Text>
+        <View style={{ backgroundColor: "white" }}>
+          <Text style={{ color: "green",marginHorizontal: 5,fontSize: 22 }}>
+            משרד העבודה והרווחה
+              עמותת נעמ"ת
+             עמותת ויצו
+          </Text>
         </View>
-      </View>
-      <EmergencyButton />
-      <ReportButton/>
-      <Button
-        icon="pan_tool"
-        mode="contained"
-        onPress={() => {
-          navigation.navigate("HomePage");
-        }}
-        style={{ backgroundColor: "blue" }}
-      >
-        חזרה למסך הבית
-      </Button>
+        <Text style={styles.headerContainer}>מי אנחנו?</Text>
+        <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-evenly",
+            backgroundColor: "yellow",
+          }}
+        >
+          <View style={{ flexDirection: "column", margin: 5 }}>
+            <Avatar.Image
+              size={80}
+              source={require("E:/Repos/BCare/client/assets/Stave.png")}
+              style={styles.imageAbout}
+            />
+            <Text>סתיו יעקובי Stave@gmail.com</Text>
+          </View>
+          <View style={{ flexDirection: "column", justifyContent: "center" }}>
+            <Avatar.Image
+              size={80}
+              source={require("E:/Repos/BCare/client/assets/Or.png")}
+              style={styles.imageAbout}
+            />
+            <Text>אור עמר Orama@gmail.com</Text>
+          </View>
+        </View>
+        <EmergencyButton />
+        <ReportButton />
+        <Button
+          icon="pan_tool"
+          mode="contained"
+          onPress={() => {
+            navigation.navigate("HomePage");
+          }}
+          style={{ backgroundColor: "blue" }}
+        >
+          חזרה למסך הבית
+        </Button>
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -91,16 +103,25 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
   },
+  warnings: {
+    color: "black",
+    fontSize: 20,
+    textAlign: "center",
+    marginHorizontal: 20,
+    elevation: 1,
+    fontWeight: "bold",
+  },
   headerContainer: {
     backgroundColor: "#8c6cce",
     color: "yellow",
     fontSize: 35,
     textAlign: "center",
     marginHorizontal: 20,
-    elevation:1
+    elevation: 1,
   },
+
   imageAbout: {
-    justifyContent:"center",
-    left:50
+    justifyContent: "center",
+    left: 50,
   },
 });

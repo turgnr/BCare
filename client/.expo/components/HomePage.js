@@ -13,7 +13,7 @@ import ReportButton from "./ReportButton";
 
 export default function HomePage({ navigation, route }) {
   const { a } = route.params; //the name of user are log-in
-  const [Nid, setid] = useState(a.UserName);
+  const [Nid, setid] = useState(a.UserName? a.UserName:a );
 
   return (
     <SafeAreaView style={styles.container}>
@@ -27,7 +27,7 @@ export default function HomePage({ navigation, route }) {
           מידע
         </Button>
       </SafeAreaView>
-      {a.isValid ? (
+      {a.UserName? (
         <SafeAreaView>
           <Button
             icon="account-question"
@@ -35,6 +35,17 @@ export default function HomePage({ navigation, route }) {
             onPress={() => navigation.navigate("QuestionPage")}
           >
             שאלון
+          </Button>
+        </SafeAreaView>
+      ) : null}
+      {a.isValid? (
+        <SafeAreaView>
+          <Button
+            icon="account-question"
+            mode="contained"
+            onPress={() => navigation.navigate("ManagerScreen")}
+          >
+            למסך מנהל
           </Button>
         </SafeAreaView>
       ) : null}
