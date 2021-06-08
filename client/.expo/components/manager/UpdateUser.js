@@ -19,6 +19,7 @@ import EmergencyButton from "../EmergencyButton";
 export default function UpdateUser({ navigation }) {
   const uri = "http://192.168.43.166:8081/login";
   const getUserUri = "http://192.168.43.166:8081/RegisterPage";
+  
   const [user, setuser] = useState();
   const [tableCol, SettableCol] = useState([]);
   const [ListOfUser, setListOfUser] = useState([]);

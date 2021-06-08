@@ -34,8 +34,8 @@ export default function RegisterPage({ navigation }) {
   const addressInputRef = createRef();
   const [listOfUsers, setListOfUsers] = useState([]);
   const [location, setLocation] = useState({});
-  //const uri = "http://192.168.1.7:8081/RegisterPage";
-  const uri = "http://192.168.43.166:8081/RegisterPage";
+  const uri = "http://192.168.1.7:8081/RegisterPage";
+  //const uri = "http://192.168.43.166:8081/RegisterPage";
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       setLocation(JSON.stringify(position)).then(() => {
@@ -128,7 +128,7 @@ export default function RegisterPage({ navigation }) {
         }}
       >
         <Image
-          source={require("C:/Repos/BCare/client/assets/icon.png")}
+          source={require("E:/Repos/BCare/client/assets/icon.png")}
           style={{
             height: 150,
             resizeMode: "contain",
@@ -161,7 +161,7 @@ export default function RegisterPage({ navigation }) {
       >
         <View style={{ alignItems: "center", backgroundColor: "#E5C7ED" }}>
           <Image
-            source={require("C:/Repos/BCare/client/assets/logo.png")}
+            source={require("E:/Repos/BCare/client/assets/logo.png")}
             style={styles.SectionStyleLogo}
           />
         </View>

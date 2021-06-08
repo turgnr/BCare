@@ -36,7 +36,7 @@ if (isAvailable) {
     <FAB
       style={styles.fab}
       small
-      icon="heart-pulse"
+      icon="message-alert"
       theme={theme}
       onPress={
         sendsms /*() => Linking.openURL("sms:0547657344?body=בקשה לחזור אליי בקשר לאלימות במשפחה")*/

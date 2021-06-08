@@ -1,9 +1,19 @@
-
-
-
-
-
-
+import React, { createRef, useEffect, useState } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  KeyboardAvoidingView,
+  TouchableOpacity,
+  ScrollView,
+  Dimensions,
+  Alert,
+} from "react-native";
+import Loader from "../Loader";
+import axios from "axios";
+import ReportButton from "../ReportButton";
+import EmergencyButton from "../EmergencyButton";
 
 export default function AddAssociation({ navigation }) {
     const [userName, setUserName] = useState("");
@@ -20,8 +30,8 @@ export default function AddAssociation({ navigation }) {
     const addressInputRef = createRef();
     const [listOfUsers, setListOfUsers] = useState([]);
     const [location, setLocation] = useState({});
-    const uri = "http://192.168.43.166:8081/tablePage";
-  
+    //const uri = "http://192.168.43.166:8081/tablePage";
+    const uri = "http://192.168.1.7:8081/tablePage";
     useEffect(() => {
       navigator.geolocation.getCurrentPosition((position) => {
         setLocation(JSON.stringify(position)).then(() => {
@@ -114,7 +124,7 @@ export default function AddAssociation({ navigation }) {
           }}
         >
           <Image
-            source={require("C:/Repos/BCare/client/assets/icon.png")}
+            source={require("E:/Repos/BCare/client/assets/icon.png")}
             style={{
               height: 150,
               resizeMode: "contain",
@@ -145,7 +155,7 @@ export default function AddAssociation({ navigation }) {
         >
           <View style={{ alignItems: "center", backgroundColor: "#E5C7ED" }}>
             <Image
-              source={require("C:/Repos/BCare/client/assets/logo.png")}
+              source={require("E:/Repos/BCare/client/assets/logo.png")}
               style={styles.SectionStyleLogo}
             />
           </View>

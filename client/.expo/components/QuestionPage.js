@@ -766,8 +766,8 @@ const survey = [
  * 
  */
 
-//const uri = "http://192.168.1.7:8081/HomePage";
-const uri = "http://192.168.43.166:8081/HomePage";
+const uri = "http://192.168.1.7:8081/HomePage";
+//const uri = "http://192.168.43.166:8081/HomePage";
 export default class QuestionPage extends Component {
   static navigationOptions = () => {
     return {

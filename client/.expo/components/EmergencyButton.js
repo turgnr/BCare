@@ -21,7 +21,7 @@ export default function EmergencyButton({ navigation }) {
     <FAB
       style={styles.fab}
       small
-      icon="heart-pulse"
+      icon="cellphone-information"
       theme= {theme}
       onPress={() => {
        Linking.openURL(`tel:${118}`);
