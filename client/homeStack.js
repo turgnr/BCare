@@ -9,6 +9,7 @@ import xPage from "./.expo/components/xPage";
 import tablePage from "./.expo/components/tablePage";
 import infoPage from "./.expo/components/infoPage";
 import SurveyCompletedScreen from "./.expo/components/SurveyCompletedScreen";
+import WarningSign from "./.expo/components/WarningSign";
 import UpdateUser from "./.expo/components/manager/UpdateUser";
 
 const Stack = createStackNavigator();
@@ -61,6 +62,11 @@ export function RootStack() {
         name="SurveyCompletedScreen"
         component={SurveyCompletedScreen}
         options={{ title: "תוצאות" }}
+      />
+      <Stack.Screen
+        name="WarningSign"
+        component={WarningSign}
+        options={{ title: "סימני אזהרה" }}
       />
     </Stack.Navigator>
   );

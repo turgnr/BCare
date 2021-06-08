@@ -13,6 +13,7 @@ import Loader from "./Loader";
 import { Button, IconButton, Colors } from "react-native-paper";
 import axios from "axios";
 import EmergencyButton from "./EmergencyButton";
+import ReportButton from "./ReportButton";
 
 export default function tablePage({ navigation }) {
   const [loading, setLoading] = useState(true);
@@ -114,7 +115,7 @@ export default function tablePage({ navigation }) {
         />
       </Table>
       {loading ? (
-        <Loader loading={loading} />
+        <Loader loading={loading} a={navigation} />
       ) : (
         tableCol.map((rowData, index) => (
           <Table key={index} borderStyle={{ borderColor: "transparent" }}>

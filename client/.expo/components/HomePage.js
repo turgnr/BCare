@@ -13,21 +13,12 @@ import ReportButton from "./ReportButton";
 
 export default function HomePage({ navigation, route }) {
   const { a } = route.params; //the name of user are log-in
-  const [Nid, setid] = useState(a.UserName? a.UserName:a );
+  const [Nid, setid] = useState(a.UserName ? a.UserName : a);
 
   return (
     <SafeAreaView style={styles.container}>
-      <SafeAreaView>
-        <Text>{Nid} שלום</Text>
-        <Button
-          icon="information-variant"
-          mode="contained"
-          onPress={() => navigation.navigate("infoPage")}
-        >
-          מידע
-        </Button>
-      </SafeAreaView>
-      {a.UserName? (
+      <Text>{Nid} שלום</Text>
+      {a.UserName ? (
         <SafeAreaView>
           <Button
             icon="account-question"
@@ -38,7 +29,34 @@ export default function HomePage({ navigation, route }) {
           </Button>
         </SafeAreaView>
       ) : null}
-      {a.isValid? (
+      <SafeAreaView>
+        <Button
+          icon="heart-multiple"
+          mode="contained"
+          onPress={() => navigation.navigate("tablePage")}
+        >
+          רשימת עמותות
+        </Button>
+      </SafeAreaView>
+      <SafeAreaView>
+        <Button
+          icon="alert-octagon"
+          mode="contained"
+          onPress={() => navigation.navigate("WarningSign")}
+        >
+          סימני אזהרה והתגוננות
+        </Button>
+      </SafeAreaView>
+      <SafeAreaView>
+        <Button
+          icon="information-variant"
+          mode="contained"
+          onPress={() => navigation.navigate("infoPage")}
+        >
+          מידע
+        </Button>
+      </SafeAreaView>
+      {a.isValid ? (
         <SafeAreaView>
           <Button
             icon="account-question"
@@ -56,15 +74,6 @@ export default function HomePage({ navigation, route }) {
           onPress={() => navigation.navigate("xPage")}
         >
           אודות
-        </Button>
-      </SafeAreaView>
-      <SafeAreaView>
-        <Button
-          icon="heart-multiple"
-          mode="contained"
-          onPress={() => navigation.navigate("tablePage")}
-        >
-          רשימת עמותות
         </Button>
       </SafeAreaView>
       <EmergencyButton />

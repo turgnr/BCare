@@ -12,46 +12,46 @@ import { Button, TextInput } from "react-native-paper";
 import EmergencyButton from "./EmergencyButton";
 import ReportButton from "./ReportButton";
 
-export default function infoPage({ navigation }) {
+export default function WarningSign({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
-        <Text style={styles.headerContainer}>מידע משפטי</Text>
+        <Text style={styles.headerContainer}>סימני אזהרה</Text>
         <Text style={styles.warnings}>
           המידע באפליקציה נאסף ממקורות המפורטים מטה השימוש במידע באחריותך בלבד
         </Text>
         <View style={{ backgroundColor: "red" }}>
-        <Text style={styles.headline}>כותרת 1</Text>
+        <Text style={styles.headline}>אלימות כללית</Text>
           <Text style={{ color: "white", marginHorizontal: 5, fontSize: 22 }}>
             מידע 1
           </Text>
         </View>
         <View style={{ backgroundColor: "red" }}>
-        <Text style={styles.headline}>כותרת 2</Text>
+        <Text style={styles.headline}>אלימות פיזית</Text>
           <Text style={{ color: "white", marginHorizontal: 5, fontSize: 22 }}>
             מידע 2
           </Text>
         </View>
         <View style={{ backgroundColor: "red" }}>
-        <Text style={styles.headline}>כותרת 3</Text>
+        <Text style={styles.headline}>אלימות טכנולוגית</Text>
           <Text style={{ color: "white", marginHorizontal: 5, fontSize: 22 }}>
             מידע 3
           </Text>
         </View>
         <View style={{ backgroundColor: "red" }}>
-        <Text style={styles.headline}>כותרת 4</Text>
+        <Text style={styles.headline}>אלימות מינית</Text>
           <Text style={{ color: "white", marginHorizontal: 5, fontSize: 22 }}>
             מידע 4
           </Text>
         </View>
         <View style={{ backgroundColor: "red" }}>
-        <Text style={styles.headline}>כותרת 5</Text>
+        <Text style={styles.headline}>אלימות מילולית ו\או נפשית</Text>
           <Text style={{ color: "white", marginHorizontal: 5, fontSize: 22 }}>
             מידע 5
           </Text>
         </View>
         <View style={{ backgroundColor: "red" }}>
-          <Text style={styles.headline}>כותרת 6</Text>
+          <Text style={styles.headline}>אלימות כלכלית</Text>
           <Text style={{ color: "white", marginHorizontal: 5, fontSize: 22 }}>
             מידע 6
           </Text>

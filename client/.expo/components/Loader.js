@@ -2,15 +2,15 @@ import React from 'react';
 import {StyleSheet, View, Modal, ActivityIndicator} from 'react-native';
 
 const Loader = (props) => {
-  const {loading, ...attributes} = props;
+  const {loading,a, ...attributes} = props;
 
   return (
     <Modal
       transparent={true}
       animationType={'none'}
       visible={loading}
-      onRequestClose={() => {
-        console.log('close modal');
+      onRequestClose={() =>{
+       a.goBack();
       }}>
       <View style={styles.modalBackground}>
         <View style={styles.activityIndicatorWrapper}>

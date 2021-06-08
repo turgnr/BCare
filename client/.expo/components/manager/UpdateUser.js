@@ -1,25 +1,20 @@
-import React, { createRef, useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
-  Text,
-  View,
-  Image,
-  KeyboardAvoidingView,
-  TouchableOpacity,
   ScrollView,
-  Dimensions,
-  Alert,
+  SafeAreaView,
 } from "react-native";
+import { Table, TableWrapper, Row, Cell } from "react-native-table-component";
 import Loader from "../Loader";
-import { Switch } from "react-native-paper";
-import { useHeaderHeight } from "@react-navigation/stack";
+import { IconButton, Switch } from "react-native-paper";
 import axios from "axios";
 import ReportButton from "../ReportButton";
 import EmergencyButton from "../EmergencyButton";
 export default function UpdateUser({ navigation }) {
   const uri = "http://192.168.43.166:8081/login";
   const getUserUri = "http://192.168.43.166:8081/RegisterPage";
-  
+  const [loading, setLoading] = useState(true);
+  const [tableHead, SettableHead] = useState([]);
   const [user, setuser] = useState();
   const [tableCol, SettableCol] = useState([]);
   const [ListOfUser, setListOfUser] = useState([]);
@@ -107,7 +102,7 @@ export default function UpdateUser({ navigation }) {
         />
       </Table>
       {loading ? (
-        <Loader loading={loading} />
+        <Loader loading={loading} a={navigation} />
       ) : (
         tableCol.map((rowData, index) => (
           <Table key={index} borderStyle={{ borderColor: "transparent" }}>

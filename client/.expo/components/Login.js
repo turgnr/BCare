@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useFocusEffect, useCallback } from "react";
-import { SafeAreaView, StyleSheet, Text, View, StatusBar } from "react-native";
+import React, { useState, useEffect } from "react";
+import { SafeAreaView, StyleSheet, Text, } from "react-native";
 import axios from "axios";
 import { Button, TextInput } from "react-native-paper";
 import EmergencyButton from "./EmergencyButton";

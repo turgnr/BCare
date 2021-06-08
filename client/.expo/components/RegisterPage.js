@@ -152,7 +152,7 @@ export default function RegisterPage({ navigation }) {
   }
   return (
     <View style={{ flex: 1 }}>
-      <Loader loading={loading} />
+      <Loader loading={loading} a={navigation} />
       <ScrollView
         contentContainerStyle={{
           justifyContent: "center",
