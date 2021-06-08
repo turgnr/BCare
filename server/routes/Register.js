@@ -4,6 +4,7 @@ const router = express.Router();
 const User = require("../models/Users");
 
 router.get("/RegisterPage", async function (req, res, next) {
+  console.log('call RegisterPage for users');
   const uuse = await User.find({});
   res.status(200).json(uuse);
 });
@@ -41,19 +42,17 @@ router.post("/RegisterPage", function (req, res, next) {
 router.post("/RegisterPage:id", function (req, res, next) {
   User.exists({ _id: req.body.id }).then((respo) => {
     if (respo) {
-      const newUser = new Users({
-        UserName: req.body.UserName,
-        Email: req.body.Email,
-        Age: req.body.Age,
-        PhonNumber: req.body.PhonNumber,
-        Password: req.body.Password,
-        Address: {
+      respo.UserName= req.body.UserName,
+      respo.Email= req.body.Email,
+      respo.Age= req.body.Age,
+      respo.PhonNumber= req.body.PhonNumber,
+      respo.Password= req.body.Password,
+      respo.Address= {
           lat: req.body.Address.lat,
           lon: req.body.Address.lot,
         },
-        isValid: req.body.isValid,
-      });
-      newUser
+        respo.isValid= req.body.isValid,
+        newUser
         .save()
         .then((result) => {
           console.log(result);
@@ -62,7 +61,8 @@ router.post("/RegisterPage:id", function (req, res, next) {
         .catch((err) => {
           console.log("err", err.response.data);
         });
-      } else {
+      }
+       else {
         return res.send("user are not exists");
     }
   });

@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  StyleSheet,
-  ScrollView,
-  SafeAreaView,
-} from "react-native";
+import { StyleSheet, ScrollView, SafeAreaView } from "react-native";
 import { Table, TableWrapper, Row, Cell } from "react-native-table-component";
 import Loader from "../Loader";
 import { IconButton, Switch } from "react-native-paper";
@@ -11,8 +7,10 @@ import axios from "axios";
 import ReportButton from "../ReportButton";
 import EmergencyButton from "../EmergencyButton";
 export default function UpdateUser({ navigation }) {
-  const uri = "http://192.168.43.166:8081/login";
-  const getUserUri = "http://192.168.43.166:8081/RegisterPage";
+  // const uri = "http://192.168.43.166:8081/login";
+  // const getUserUri = "http://192.168.43.166:8081/RegisterPage";
+  const uri = "http://192.168.1.7:8081/login";
+  const getUserUri = "http://192.168.1.7:8081/RegisterPage";
   const [loading, setLoading] = useState(true);
   const [tableHead, SettableHead] = useState([]);
   const [user, setuser] = useState();
@@ -22,8 +20,20 @@ export default function UpdateUser({ navigation }) {
   useEffect(() => {
     axios.get(getUserUri).then((responseJson) => {
       setListOfUser(responseJson.data);
+      console.log("users are download",responseJson.data);
     });
   }, []);
+
+  useEffect(() => {
+    if (ListOfUser != null && ListOfUser != undefined) {
+      convertData(ListOfUser);
+      if (tableCol) {
+        setLoading(false);
+      }
+    } else {
+    }
+  }, [ListOfUser]);
+
 
   async function convertData(x) {
     if (x) {
@@ -34,6 +44,7 @@ export default function UpdateUser({ navigation }) {
         }
       });
       await SettableHead(head1);
+      console.log(head1);
       let col = [];
       x.forEach((el) => {
         let col1 = [];

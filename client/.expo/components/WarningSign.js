@@ -4,11 +4,10 @@ import {
   StyleSheet,
   Text,
   View,
-  StatusBar,
   ScrollView,
 } from "react-native";
 
-import { Button, TextInput } from "react-native-paper";
+import { Button} from "react-native-paper";
 import EmergencyButton from "./EmergencyButton";
 import ReportButton from "./ReportButton";
 
