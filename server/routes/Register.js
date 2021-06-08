@@ -38,8 +38,41 @@ router.post("/RegisterPage", function (req, res, next) {
   });
 });
 
-router.put("/RegisterPage/:id", function (req, res, next) {
-  res.send("put");
+router.post("/RegisterPage:id", function (req, res, next) {
+  User.exists({ _id: req.body.id }).then((respo) => {
+    if (respo) {
+      const newUser = new Users({
+        UserName: req.body.UserName,
+        Email: req.body.Email,
+        Age: req.body.Age,
+        PhonNumber: req.body.PhonNumber,
+        Password: req.body.Password,
+        Address: {
+          lat: req.body.Address.lat,
+          lon: req.body.Address.lot,
+        },
+        isValid: req.body.isValid,
+      });
+      newUser
+        .save()
+        .then((result) => {
+          console.log(result);
+          res.status(200).send("user is update");
+        })
+        .catch((err) => {
+          console.log("err", err.response.data);
+        });
+      } else {
+        return res.send("user are not exists");
+    }
+  });
+});
+
+router.get("/RegisterPage/:id", function (req, res, next) {
+  
+  User.find({_id:req.params.id}).then((user)=>{
+    res.send(user);
+  });
 });
 
 router.delete("/RegisterPage/:id", function (req, res, next) {

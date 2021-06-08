@@ -753,7 +753,7 @@ const survey = [
 },
    {
       questionType: 'Info',
-      questionText: 'מיד תןעברי לדף המידע'
+      questionText: 'לתוצאות'
   },
 ];
 
@@ -766,7 +766,8 @@ const survey = [
  * 
  */
 
-const uri = "http://192.168.1.7:8081/HomePage";
+//const uri = "http://192.168.1.7:8081/HomePage";
+const uri = "http://192.168.43.166:8081/HomePage";
 export default class QuestionPage extends Component {
   static navigationOptions = () => {
     return {
@@ -893,10 +894,10 @@ export default class QuestionPage extends Component {
   renderFinishedButton(onPress, enabled) {
     return (
       <View
-        style={{ flexGrow: 1, maxWidth: 100, marginTop: 10, marginBottom: 10 }}
+        style={{ flexGrow: 1, maxWidth: 100, marginTop: 10, marginBottom: 10 ,marginHorizontal: 13 }}
       >
         <Button
-          title={"Finished"}
+          title={"סיימתי"}
           onPress={onPress}
           disabled={!enabled}
           color={GREEN}
@@ -932,43 +933,7 @@ export default class QuestionPage extends Component {
     );
   }
 
-  renderTextBox(onChange, value, placeholder, onBlur) {
-    return (
-      <View>
-        <TextInput
-          style={styles.textBox}
-          onChangeText={(text) => onChange(text)}
-          numberOfLines={1}
-          underlineColorAndroid={"white"}
-          placeholder={placeholder}
-          placeholderTextColor={"rgba(184,184,184,1)"}
-          value={value}
-          multiline
-          onBlur={onBlur}
-          blurOnSubmit
-          returnKeyType="done"
-        />
-      </View>
-    );
-  }
 
-  renderNumericInput(onChange, value, placeholder, onBlur) {
-    return (
-      <TextInput
-        style={styles.numericInput}
-        onChangeText={(text) => {
-          onChange(text);
-        }}
-        underlineColorAndroid={"white"}
-        placeholderTextColor={"rgba(184,184,184,1)"}
-        value={String(value)}
-        placeholder={placeholder}
-        keyboardType={"numeric"}
-        onBlur={onBlur}
-        maxLength={3}
-      />
-    );
-  }
 
   renderInfoText(infoText) {
     return (
@@ -998,6 +963,7 @@ export default class QuestionPage extends Component {
             navButtonContainerStyle={{
               flexDirection: "row",
               justifyContent: "space-around",
+              marginHorizontal: 5,
             }}
             renderPrevious={this.renderPreviousButton.bind(this)}
             renderNext={this.renderNextButton.bind(this)}

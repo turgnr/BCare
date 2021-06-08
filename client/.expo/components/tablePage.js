@@ -19,8 +19,8 @@ export default function tablePage({ navigation }) {
   const [tableHead, SettableHead] = useState([]);
   const [tableCol, SettableCol] = useState([]);
   const [x, setX] = useState();
-  const uri = "http://192.168.1.7:8081/tablePage";
-  //const uri = "http://192.168.43.166:8081/tablePage";
+  //const uri = "http://192.168.1.7:8081/tablePage";
+  const uri = "http://192.168.43.166:8081/tablePage";
   //const uri = "http://127.0.0.1:8081/tablePage";
   useEffect(() => {
     axios.get(uri).then((responseJson) => {

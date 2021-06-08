@@ -9,6 +9,7 @@ import xPage from "./.expo/components/xPage";
 import tablePage from "./.expo/components/tablePage";
 import infoPage from "./.expo/components/infoPage";
 import SurveyCompletedScreen from "./.expo/components/SurveyCompletedScreen";
+import UpdateUser from "./.expo/components/manager/UpdateUser";
 
 const Stack = createStackNavigator();
 
@@ -36,7 +37,11 @@ export function RootStack() {
         component={QuestionPage}
         options={{ title: "שאלון" }}
       />
-      <Stack.Screen name="xPage" component={xPage} options={{ title: "אודות ומקורות" }} />
+      <Stack.Screen
+        name="xPage"
+        component={xPage}
+        options={{ title: "אודות ומקורות" }}
+      />
       <Stack.Screen
         name="tablePage"
         component={tablePage}
@@ -46,6 +51,11 @@ export function RootStack() {
         name="infoPage"
         component={infoPage}
         options={{ title: "מידע" }}
+      />
+      <Stack.Screen
+        name="UpdateUser"
+        component={UpdateUser}
+        options={{ title: "עריכת משתמש" }}
       />
       <Stack.Screen
         name="SurveyCompletedScreen"

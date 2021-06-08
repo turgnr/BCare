@@ -12,6 +12,8 @@ router.get("/login", async function (req, res, next) {
   console.log("GET- login", req.query);
   const users = await User.find({});
   var flag = false;
+  if(req.query.UserName)
+  {
   for(i=0;i<users.length;i++){
     if (
       req.query.UserName === users[i].UserName &&
@@ -21,8 +23,11 @@ router.get("/login", async function (req, res, next) {
          userapproved = users[i];
          break;// if the details of user are exist we give him to connect to the app
     }
-  };
-   return flag? res.status(200).send({userapproved}):res.status(203).send('user is not able');
+  }
+  return flag? res.status(200).send({userapproved}):res.status(203).send('user is not able');
+  }
+  else
+  {return res.status(200).send({users})}
 });
 
 router.post("/login", function (req, res, next) {
@@ -33,6 +38,7 @@ router.post("/login", function (req, res, next) {
 });
 
 router.put("/login/:id", function (req, res, next) {
+  
   res.send("put");
 });
 router.delete("login/:id", function (req, res, next) {

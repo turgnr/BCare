@@ -43,7 +43,7 @@ export default function HomePage({ navigation, route }) {
           <Button
             icon="account-question"
             mode="contained"
-            onPress={() => navigation.navigate("ManagerScreen")}
+            onPress={() => navigation.navigate("UpdateUser")}
           >
             למסך מנהל
           </Button>
