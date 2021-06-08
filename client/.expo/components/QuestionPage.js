@@ -841,6 +841,7 @@ export default class QuestionPage extends Component {
    *  is restricted (age, geo-fencing) from your app.
    */
   onAnswerSubmitted(answer) {
+    console.log(answer.questionId);
     this.setState({
       answersSoFar: JSON.stringify(this.surveyRef.getAnswers(), 2),
       numberofQ: this.state.numberofQ + 1,
@@ -850,11 +851,11 @@ export default class QuestionPage extends Component {
       
       this.state.res1 = this.state.res1 +answer.value[0].value;
     }
-    else if(this.state.numberofQ>10 && this.state.numberofQ<17){this.state.res2 = this.state.res2 +answer.value[0].value;}
-    else if(this.state.numberofQ>16 && this.state.numberofQ<19) {this.state.res3 = this.state.res3 +answer.value[0].value;}
-    else if(this.state.numberofQ>19 && this.state.numberofQ<23) {this.state.res4 = this.state.res4 +answer.value[0].value;}
-    else if(this.state.numberofQ>22 && this.state.numberofQ<28) {this.state.res5 = this.state.res5 +answer.value[0].value;}
-    else if(this.state.numberofQ>28 && this.state.numberofQ<31)
+    else if(this.state.numberofQ>=11 && this.state.numberofQ<17){this.state.res2 = this.state.res2 +answer.value[0].value;}
+    else if(this.state.numberofQ>=17 && this.state.numberofQ<19) {this.state.res3 = this.state.res3 +answer.value[0].value;}
+    else if(this.state.numberofQ>=19 && this.state.numberofQ<23) {this.state.res4 = this.state.res4 +answer.value[0].value;}
+    else if(this.state.numberofQ>=23 && this.state.numberofQ<28) {this.state.res5 = this.state.res5 +answer.value[0].value;}
+    else if(this.state.numberofQ>=28 && this.state.numberofQ<=30)
     {
       this.state.res6 = this.state.res6 +answer.value[0].value; 
     }  }
