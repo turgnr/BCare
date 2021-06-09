@@ -13,9 +13,9 @@ export default function ViolenceTypes({ navigation }) {
         <Text style={styles.warnings}>
           המידע באפליקציה נאסף ממקורות המפורטים מטה השימוש במידע באחריותך בלבד
         </Text>
-        <View style={{ backgroundColor: "red" }}>
+        <View style={}>
           <Text style={styles.headline}>אלימות כללית</Text>
-          <Text style={{ color: "white", marginHorizontal: 5, fontSize: 22 }}>
+          <Text style={{ color: "black", marginHorizontal: 5, fontSize: 22 }}>
             אלימות במשפחה לעיתים מתקיימת האלימות מחוץ לגבולות המשפחה ומופעלת
             כנגד נשים רק משום שהן נשים או שהנשים הן הנפגעות העיקריות ממנה באופן
             מובחן ולכן היא נקראת "אלימות מגדרית" או "אלימות נגד נשים" אנשים רבים
@@ -36,9 +36,9 @@ export default function ViolenceTypes({ navigation }) {
             צורך בטיפול מיידי !!
           </Text>
         </View>
-        <View style={{ backgroundColor: "red" }}>
+        <View style={}>
           <Text style={styles.headline}>אלימות פיזית</Text>
-          <Text style={{ color: "white", marginHorizontal: 5, fontSize: 22 }}>
+          <Text style={{ color: "black", marginHorizontal: 5, fontSize: 22 }}>
             האם מישהו מבני ביתך פוגע בך באופן פיזי, מכה אותך או מפעיל נגדך כוח
             גופני בכל צורה שהיא? כל התנהגות כוחנית המבוצעת כלפי מי מבני ובנות
             הבית אשר מתבטאת בפגיעה בגוף ובבריאות היא אלימות פיזית. אלימות מסוג
@@ -58,9 +58,9 @@ export default function ViolenceTypes({ navigation }) {
             חובה אלימות זו אין זו אשמתך ויש צורך בטיפול מיידי !!
           </Text>
         </View>
-        <View style={{ backgroundColor: "red" }}>
+        <View style={}>
           <Text style={styles.headline}>אלימות טכנולוגית</Text>
-          <Text style={{ color: "white", marginHorizontal: 5, fontSize: 22 }}>
+          <Text style={{ color: "black", marginHorizontal: 5, fontSize: 22 }}>
             נעשית בצורה מתוחכמת שאינה מותירה "עקבות". שליטה וניצול הטכנולוגיה
             בידי הגבר בכדי לשלוט על האישה, התקנת מכשירי האזנה, מערכות מיקום
             ואיתור גלובאליות (GPS), לקיחת טלפון נייד, מניעת שימוש ביישומים
@@ -74,9 +74,9 @@ export default function ViolenceTypes({ navigation }) {
             אשמתך ויש צורך בטיפול מיידי !!
           </Text>
         </View>
-        <View style={{ backgroundColor: "red" }}>
+        <View style={}>
           <Text style={styles.headline}>אלימות מינית</Text>
-          <Text style={{ color: "white", marginHorizontal: 5, fontSize: 22 }}>
+          <Text style={{ color: "black", marginHorizontal: 5, fontSize: 22 }}>
             האם מישהו מבני ביתך פוגע בך באופן מיני, נוגע בחלקי גופך באופן לא
             רצוי או כופה את עצמו על גופך כנגד רצונך? התייחסות אל אישה כאל
             אובייקט מיני, ביצוע מעשים מגונים, קיום יחסי מין באיום, בסחיטה,
@@ -102,9 +102,9 @@ export default function ViolenceTypes({ navigation }) {
             חובה אלימות זו אין זו אשמתך ויש צורך בטיפול מיידי !!
           </Text>
         </View>
-        <View style={{ backgroundColor: "red" }}>
+        <View style={}>
           <Text style={styles.headline}>אלימות מילולית ו\או נפשית</Text>
-          <Text style={{ color: "white", marginHorizontal: 5, fontSize: 22 }}>
+          <Text style={{ color: "black", marginHorizontal: 5, fontSize: 22 }}>
             האם מישהו משפיל אותך, מרים את קולו או מאיים על חייך? האם מישהו מבודד
             אותך מהסביבה ומונע ממך קשרים חברתיים? האם הוא מפגין קנאה ונוטה
             להתפרצויות זעם ? שימוש בביטויים פוגעים ומשפילים כלפי האישה הוא
@@ -128,9 +128,9 @@ export default function ViolenceTypes({ navigation }) {
             זו אשמתך ויש צורך בטיפול מיידי !!
           </Text>
         </View>
-        <View style={{ backgroundColor: "red" }}>
+        <View style={}>
           <Text style={styles.headline}>אלימות כלכלית</Text>
-          <Text style={{ color: "white", marginHorizontal: 5, fontSize: 22 }}>
+          <Text style={{ color: "black", marginHorizontal: 5, fontSize: 22 }}>
             האם מישהו מונע ממך גישה לחשבון הבנק המשותף? האם נדרשת ממך הצדקה לכל
             הוצאה או שנמנעת ממך האפשרות להתפרנס? כל ניסיון להפוך אותך ואת בני
             הבית לתלוי בפוגע לצורך קיומו החומרי והכלכלי הוא אלימות כלכלית.

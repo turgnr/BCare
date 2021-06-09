@@ -20,9 +20,9 @@ export default function infoPage({ navigation }) {
         <Text style={styles.warnings}>
           המידע באפליקציה נאסף ממקורות המפורטים מטה השימוש במידע באחריותך בלבד
         </Text>
-        <View style={{ backgroundColor: "red" }}>
+        <View style={}>
           <Text style={styles.headline}>האם את חשופה לאלימות במשפחה? </Text>
-          <Text style={{ color: "white", marginHorizontal: 5, fontSize: 22 }}>
+          <Text style={{ color: "black", marginHorizontal: 5, fontSize: 22 }}>
             • נפגעות אלימות במשפחה יכולות לקבל סיוע משפטי ממשרד המשפטים בהליכים
             של צו הגנה וצווים למניעת הטרדה ולהרחקה. • ניתן להגיש תלונה למשטרה. •
             ניתן לבקש מבית המשפט לענייני משפחה או בית דין דתי צו הגנה למניעת
@@ -34,36 +34,36 @@ export default function infoPage({ navigation }) {
             דתיות וחרדיות נפגעות אלימות במשפחה.
           </Text>
         </View>
-        <View style={{ backgroundColor: "red" }}>
+        <View style={}>
           <Text style={styles.headline}>
             מה קורה אם את זכאית למקלט אבל לא יכולה לשהות בו (מסיבות כאלה
             ואחרות)?
           </Text>
-          <Text style={{ color: "white", marginHorizontal: 5, fontSize: 22 }}>
+          <Text style={{ color: "black", marginHorizontal: 5, fontSize: 22 }}>
             ייתכן ואת זכאית לסיוע בשכר דירה.
           </Text>
         </View>
-        <View style={{ backgroundColor: "red" }}>
+        <View style={}>
           <Text style={styles.headline}>האם נזקקת לטיפול רפואי ?</Text>
-          <Text style={{ color: "white", marginHorizontal: 5, fontSize: 22 }}>
+          <Text style={{ color: "black", marginHorizontal: 5, fontSize: 22 }}>
             במצבים מסוימים, נפגעות אלימות עשויים להגיע לחדרי המיון בבית החולים
             לצורך טיפול רפואי. במקרים של אלימות במשפחה ונפגעות אלימות מינית,
             פטורות מתשלום בפנייה לחדר מיון.
           </Text>
         </View>
-        <View style={{ backgroundColor: "red" }}>
+        <View style={}>
           <Text style={styles.headline}>מהם התנאים למועמדות לקבלת סיוע ?</Text>
-          <Text style={{ color: "white", marginHorizontal: 5, fontSize: 22 }}>
+          <Text style={{ color: "black", marginHorizontal: 5, fontSize: 22 }}>
             הסיוע ניתן באופן חד פעמי, כאשר ישנם שני תנאים מחייבים למועמדות
             לקבלתו: • על הנפגעת לעזוב את הגורם הפוגע ואת הבית. • אישור מגורם
             הרווחה המטפל כי לפונה קיימת תוכנית טיפול בתחום אלימות במשפחה.
           </Text>
         </View>
-        <View style={{ backgroundColor: "red" }}>
+        <View style={}>
           <Text style={styles.headline}>
             האם את מעוניינת או נאלצת להיעדר מעבודתך ?
           </Text>
-          <Text style={{ color: "white", marginHorizontal: 5, fontSize: 22 }}>
+          <Text style={{ color: "black", marginHorizontal: 5, fontSize: 22 }}>
             על פי חוק עבודת נשים, תשי"ד-1954, נשים אשר נמצאות במקלט לנשים נפגעות
             אלימות (באישור גורמי הרווחה), זכאיות להיעדר מעבודתן בתקופת שהותן
             במקלט, אם יש לך ותק של חצי שנה לפחות באותו מקום עבודה או אצל אותו
@@ -82,26 +82,26 @@ export default function infoPage({ navigation }) {
             ולמשוך חלק מהסכומים שחסכת בחיסכון הפסיוני ללא תשלום מס.
           </Text>
         </View>
-        <View style={{ backgroundColor: "red" }}>
+        <View style={}>
           <Text style={styles.headline}>האם את מקבלת הבטחת הכנסה ?</Text>
-          <Text style={{ color: "white", marginHorizontal: 5, fontSize: 22 }}>
+          <Text style={{ color: "black", marginHorizontal: 5, fontSize: 22 }}>
             אם לא, ייתכן שתהיי זכאית לגמלת הבטחת הכנסה, נשים תושבות ישראל
             הצפויות לשהות במקלט לנפגעות אלימות מעל 30 ימים רשאיות להגיש בקשה
             לבדיקת זכאותן להבטחת הכנסה מביטוח לאומי.
           </Text>
         </View>
-        <View style={{ backgroundColor: "red" }}>
+        <View style={}>
           <Text style={styles.headline}>מענק לימודים לילדי המשפחה.</Text>
-          <Text style={{ color: "white", marginHorizontal: 5, fontSize: 22 }}>
+          <Text style={{ color: "black", marginHorizontal: 5, fontSize: 22 }}>
             נשים השוהות במקלט לנפגעות אלימות זכאיות לקבל מענק לימודים מטעם
             הביטוח הלאומי אשר מסייע בהשתתפות הוצאות הלימודים של ילדי המשפחה.
           </Text>
         </View>
-        <View style={{ backgroundColor: "red" }}>
+        <View style={}>
           <Text style={styles.headline}>
             מענק הסתגלות לנשים ששהו במקלט לנפגעות אלימות: מי זכאית לקבלת מענק?
           </Text>
-          <Text style={{ color: "white", marginHorizontal: 5, fontSize: 22 }}>
+          <Text style={{ color: "black", marginHorizontal: 5, fontSize: 22 }}>
             ע"פ חוק שירותי רווחה( זכויות נשים ששהו במקלט לנשים מוכות) תש"ג
             ג-2012 נשים אשר שהו במקלט לנפגעות אלימות ועומדות בתנאים המוגדרים
             זכאיות לקבלת מענק הסתגלות לאחר עזיבת המקלט. המענק יינתן לנשים אשר
@@ -116,9 +116,9 @@ export default function infoPage({ navigation }) {
             חצי שנה מהיום שבו נדחתה בקשתך לקבלת המענק.
           </Text>
         </View>
-        <View style={{ backgroundColor: "red" }}>
+        <View style={}>
           <Text style={styles.headline}>חוק חובת היידוע</Text>
-          <Text style={{ color: "white", marginHorizontal: 5, fontSize: 22 }}>
+          <Text style={{ color: "black", marginHorizontal: 5, fontSize: 22 }}>
             ליידע אדם על אפשרותו לפנות לתחנת משטרה, למחלקה לשירותים חברתיים או
             למרכז לטיפול ולמניעת אלימות במשפחה, אם מתעורר בהם חשד סביר כי נעברה
             באדם לאחרונה עברת אלימות, לרבות עברת מין, על ידי בן זוגו או מי שהיה
