@@ -12,7 +12,6 @@ const defaultAnswers = {
 export default class SurveyCompletedScreen extends Component {
   constructor(props) {
     super(props);
-    console.log("answers", this.props.route.params.answers);
   }
 
   static navigationOptions = () => {

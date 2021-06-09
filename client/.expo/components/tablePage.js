@@ -20,11 +20,12 @@ export default function tablePage({ navigation }) {
   const [tableHead, SettableHead] = useState([]);
   const [tableCol, SettableCol] = useState([]);
   const [x, setX] = useState();
-  const uri = "http://192.168.1.7:8081/tablePage";
-  //const uri = "http://192.168.43.166:8081/tablePage";
+ // const uri = "http://192.168.1.7:8081/tablePage";
+  const uri = "http://192.168.43.166:8081/tablePage";
   //const uri = "http://127.0.0.1:8081/tablePage";
   useEffect(() => {
     axios.get(uri).then((responseJson) => {
+      console.log(responseJson.data);
       setX(responseJson.data);
     });
   }, []);
@@ -32,12 +33,16 @@ export default function tablePage({ navigation }) {
   useEffect(() => {
     if (x != null && x != undefined) {
       convertData(x);
-      if (tableCol) {
-        setLoading(false);
-      }
-    } else {
     }
   }, [x]);
+  useEffect(() => {
+    if (tableCol!=0) {
+      setLoading(false);
+    }
+  }, [tableCol]);
+
+  
+
 
   //set the data fit for table
   async function convertData(x) {
@@ -64,7 +69,7 @@ export default function tablePage({ navigation }) {
       await SettableCol(col);
     }
 
-    if (tableCol) setLoading(false);
+   // if (tableCol) setLoading(false);
   }
   //create the iconButton in the cells table
   function data(i, data) {
@@ -146,7 +151,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#ff00d2",
   },
   head: { height: 40, backgroundColor: "#DF7EE8" },
-  text: { margin: 6 },
+  text: { margin: 6, },
   row: { flexDirection: "row", backgroundColor: "#C18EE9" },
   btn: {
     width: 35,

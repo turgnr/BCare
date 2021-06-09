@@ -61,7 +61,7 @@ export default function HomePage({ navigation, route }) {
           <Button
             icon="account-question"
             mode="contained"
-            onPress={() => navigation.navigate("UpdateUser")}
+            onPress={() => navigation.navigate("AddAssociation")}
           >
             למסך מנהל
           </Button>

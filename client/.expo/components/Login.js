@@ -11,8 +11,8 @@ export default function Login({ navigation }) {
   const [password, setPass] = useState("");
   const [backPressedCount, setBackPressedCount] = useState(0);
   const [errortext, setErrortext] = useState("");
-  const uri = "http://192.168.1.7:8081/login";
-  //const uri = "http://192.168.43.166:8081/login";
+  //const uri = "http://192.168.1.7:8081/login";
+  const uri = "http://192.168.43.166:8081/login";
   //const uri = "http://127.0.0.1:8081/login";
 
   useEffect(() => {

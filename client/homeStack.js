@@ -9,9 +9,9 @@ import xPage from "./.expo/components/xPage";
 import tablePage from "./.expo/components/tablePage";
 import infoPage from "./.expo/components/infoPage";
 import UpdateUser from "./.expo/components/manager/UpdateUser";
+import AddAssociation from "./.expo/components/manager/AddAssociation";
 import SurveyCompletedScreen from "./.expo/components/SurveyCompletedScreen";
 import WarningSign from "./.expo/components/WarningSign";
-
 
 const Stack = createStackNavigator();
 
@@ -68,6 +68,11 @@ export function RootStack() {
         name="WarningSign"
         component={WarningSign}
         options={{ title: "סימני אזהרה" }}
+      />
+      <Stack.Screen
+        name="AddAssociation"
+        component={AddAssociation}
+        options={{ title: "הוספת עמותה" }}
       />
     </Stack.Navigator>
   );

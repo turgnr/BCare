@@ -766,8 +766,8 @@ const survey = [
  * 
  */
 
-const uri = "http://192.168.1.7:8081/HomePage";
-//const uri = "http://192.168.43.166:8081/HomePage";
+//const uri = "http://192.168.1.7:8081/HomePage";
+const uri = "http://192.168.43.166:8081/HomePage";
 export default class QuestionPage extends Component {
   static navigationOptions = () => {
     return {
@@ -841,7 +841,6 @@ export default class QuestionPage extends Component {
    *  is restricted (age, geo-fencing) from your app.
    */
   onAnswerSubmitted(answer) {
-    console.log(answer.questionId);
     this.setState({
       answersSoFar: JSON.stringify(this.surveyRef.getAnswers(), 2),
       numberofQ: this.state.numberofQ + 1,
