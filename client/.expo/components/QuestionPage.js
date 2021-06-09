@@ -116,7 +116,7 @@ const survey = [
 {
   questionType: 'MultipleSelectionGroup',
   questionText:
-      '4.	זלזול וחוסר הערכה: האם הוא פוגע בערך העצמי שלך מעליב, משפיל, מקטין ומזלזל ברצונותייך ובדברייך?',
+      'זלזול וחוסר הערכה: האם הוא פוגע בערך העצמי שלך מעליב, משפיל, מקטין ומזלזל ברצונותייך ובדברייך?',
   questionId: 'Q5',
   questionSettings: {
       maxMultiSelect: 2,
@@ -166,7 +166,7 @@ const survey = [
 {
   questionType: 'MultipleSelectionGroup',
   questionText:
-      '6.	מצבי רוח קיצוניים: מצבי רוחו נוטים להשתנות במהירות מקיצוניות אחת לשנייה?',
+      'מצבי רוח קיצוניים: מצבי רוחו נוטים להשתנות במהירות מקיצוניות אחת לשנייה?',
   questionId: 'Q7',
   questionSettings: {
       maxMultiSelect: 2,
@@ -191,7 +191,7 @@ const survey = [
 {
   questionType: 'MultipleSelectionGroup',
   questionText:
-      '7.	הסתרה : האם את מרגישה שעלייך להסתיר מהקרובים לך את המצב ביניכם?',
+      'הסתרה : האם את מרגישה שעלייך להסתיר מהקרובים לך את המצב ביניכם?',
   questionId: 'Q8',
   questionSettings: {
       maxMultiSelect: 2,
@@ -216,7 +216,7 @@ const survey = [
 {
   questionType: 'MultipleSelectionGroup',
   questionText:
-      '8.	האם את חוששת לומר לו שאת רוצה להיפרד? ',
+      'האם את חוששת לומר לו שאת רוצה להיפרד? ',
   questionId: 'Q9',
   questionSettings: {
       maxMultiSelect: 2,
@@ -241,7 +241,7 @@ const survey = [
 {
   questionType: 'MultipleSelectionGroup',
   questionText:
-      '9.	האשמות: הוא מאשים אותך ואת הסביבה שלכם בבעיותיו?',
+      'האשמות: הוא מאשים אותך ואת הסביבה שלכם בבעיותיו?',
   questionId: 'Q10',
   questionSettings: {
       maxMultiSelect: 2,
@@ -266,7 +266,7 @@ const survey = [
 {
   questionType: 'MultipleSelectionGroup',
   questionText:
-      '1.	 האם הוא משתמש באלימות פיזית כלפייך או כלפי בני הבית?',
+      'האם הוא משתמש באלימות פיזית כלפייך או כלפי בני הבית?',
   questionId: 'Q11',
   questionSettings: {
       maxMultiSelect: 2,
@@ -391,7 +391,7 @@ const survey = [
 {
   questionType: 'MultipleSelectionGroup',
   questionText:
-      '6.	האם יש לו היסטוריה של אלימות ?',
+      'האם יש לו היסטוריה של אלימות ?',
   questionId: 'Q16',
   questionSettings: {
       maxMultiSelect: 2,
@@ -416,7 +416,7 @@ const survey = [
 {
   questionType: 'MultipleSelectionGroup',
   questionText:
-      '1.	האם את מרגישה שעלייך למחוק תיעוד של שיחות עם אחרים מהפלאפון שלך? ',
+      'האם את מרגישה שעלייך למחוק תיעוד של שיחות עם אחרים מהפלאפון שלך? ',
   questionId: 'Q17',
   questionSettings: {
       maxMultiSelect: 2,
@@ -437,7 +437,7 @@ const survey = [
 {
   questionType: 'MultipleSelectionGroup',
   questionText:
-      '2.	האם הוא בודק את ההודעות שלך בפלאפון או בדואר האלקטרוני ללא רשותך?',
+      'האם הוא בודק את ההודעות שלך בפלאפון או בדואר האלקטרוני ללא רשותך?',
   questionId: 'Q18',
   questionSettings: {
       maxMultiSelect: 2,
@@ -458,7 +458,7 @@ const survey = [
 {
   questionType: 'MultipleSelectionGroup',
   questionText:
-      '1.	קיום יחסים שלא מרצון: את מוצאת עצמך מקיימת יחסי מין בניגוד לרצונך?',
+      'קיום יחסים שלא מרצון: את מוצאת עצמך מקיימת יחסי מין בניגוד לרצונך?',
   questionId: 'Q19',
   questionSettings: {
       maxMultiSelect: 2,
@@ -483,7 +483,7 @@ const survey = [
 {
   questionType: 'MultipleSelectionGroup',
   questionText:
-      '2.	האם הוא אנס אותך או ניסה לאנוס אותך (השתמש בכוח), כפה את עצמו על גופך כנגד רצונך ובניגוד להסכמתך?',
+      'האם הוא אנס אותך או ניסה לאנוס אותך (השתמש בכוח), כפה את עצמו על גופך כנגד רצונך ובניגוד להסכמתך?',
   questionId: 'Q20',
   questionSettings: {
       maxMultiSelect: 2,
@@ -504,7 +504,7 @@ const survey = [
 {
   questionType: 'MultipleSelectionGroup',
   questionText:
-      '3.	האם הוא עושה בך מעשים מגונים?',
+      'האם הוא עושה בך מעשים מגונים?',
   questionId: 'Q21',
   questionSettings: {
       maxMultiSelect: 2,
@@ -529,7 +529,7 @@ const survey = [
 {
   questionType: 'MultipleSelectionGroup',
   questionText:
-      '4.	האם הוא מתייחס אלייך כאל אובייקט מיני ?',
+      'האם הוא מתייחס אלייך כאל אובייקט מיני ?',
   questionId: 'Q22',
   questionSettings: {
       maxMultiSelect: 2,
@@ -554,7 +554,7 @@ const survey = [
 {
   questionType: 'MultipleSelectionGroup',
   questionText:
-      '1.	האם הוא מרבה להשתמש בביטויים משפילים או פוגעניים וקללות כלפייך?',
+      'האם הוא מרבה להשתמש בביטויים משפילים או פוגעניים וקללות כלפייך?',
   questionId: 'Q23',
   questionSettings: {
       maxMultiSelect: 2,
@@ -579,7 +579,7 @@ const survey = [
 {
   questionType: 'MultipleSelectionGroup',
   questionText:
-      '2.	האם הוא דואג להשפיל אותך ומאיים לחשוף את סודותייך או חולשותייך?',
+      'האם הוא דואג להשפיל אותך ומאיים לחשוף את סודותייך או חולשותייך?',
   questionId: 'Q24',
   questionSettings: {
       maxMultiSelect: 2,
@@ -604,7 +604,7 @@ const survey = [
 {
   questionType: 'MultipleSelectionGroup',
   questionText:
-      '3.	האם הוא יורד על המראה החיצוני שלך או משתמש בכינויי גנאי ועלבונות כלפייך(גם בפני אנשים) ?',
+      'האם הוא יורד על המראה החיצוני שלך או משתמש בכינויי גנאי ועלבונות כלפייך(גם בפני אנשים) ?',
   questionId: 'Q25',
   questionSettings: {
       maxMultiSelect: 2,
@@ -629,7 +629,7 @@ const survey = [
 {
   questionType: 'MultipleSelectionGroup',
   questionText:
-      '4.	האם הוא מרים את קולו, מאיים או שאת מרגישה מאויימת מדבריו או התנהגותו?',
+      'האם הוא מרים את קולו, מאיים או שאת מרגישה מאויימת מדבריו או התנהגותו?',
   questionId: 'Q26',
   questionSettings: {
       maxMultiSelect: 2,
@@ -654,7 +654,7 @@ const survey = [
 {
   questionType: 'MultipleSelectionGroup',
   questionText:
-      '1.	שליטה כלכלית: האם הוא לוקח שליטה על המשאבים הכספיים והכלכליים של המשפחה?',
+      'שליטה כלכלית: האם הוא לוקח שליטה על המשאבים הכספיים והכלכליים של המשפחה?',
   questionId: 'Q27',
   questionSettings: {
       maxMultiSelect: 2,
@@ -679,7 +679,7 @@ const survey = [
 {
   questionType: 'MultipleSelectionGroup',
   questionText:
-      '2.	האם הוא מונע ממך להחזיק בכרטיס אשראי או גישה לכסף ולחשבון הבנק המשותף או האישי שלך?',
+      'האם הוא מונע ממך להחזיק בכרטיס אשראי או גישה לכסף ולחשבון הבנק המשותף או האישי שלך?',
   questionId: 'Q28',
   questionSettings: {
       maxMultiSelect: 2,
@@ -704,7 +704,7 @@ const survey = [
 {
   questionType: 'MultipleSelectionGroup',
   questionText:
-      '3.	האם את נאלצת לבקש את אישורו על כל הוצאה שאת עושה לעצמך או לבית?',
+      'האם את נאלצת לבקש את אישורו על כל הוצאה שאת עושה לעצמך או לבית?',
   questionId: 'Q29',
   questionSettings: {
       maxMultiSelect: 2,
@@ -729,7 +729,7 @@ const survey = [
 {
   questionType: 'MultipleSelectionGroup',
   questionText:
-      '4.	האם הוא מונע ממך לצאת לעבוד וטוען שידאג לפרנסתך ולצרכייך ?',
+      'האם הוא מונע ממך לצאת לעבוד וטוען שידאג לפרנסתך ולצרכייך ?',
   questionId: 'Q30',
   questionSettings: {
       maxMultiSelect: 2,
@@ -766,8 +766,8 @@ const survey = [
  * 
  */
 
-//const uri = "http://192.168.1.7:8081/HomePage";
-const uri = "http://192.168.43.166:8081/HomePage";
+const uri = "http://192.168.1.3:8081/HomePage";
+//const uri = "http://192.168.43.166:8081/HomePage";
 export default class QuestionPage extends Component {
   static navigationOptions = () => {
     return {

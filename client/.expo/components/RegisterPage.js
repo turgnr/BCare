@@ -34,8 +34,9 @@ export default function RegisterPage({ navigation }) {
   const addressInputRef = createRef();
   const [listOfUsers, setListOfUsers] = useState([]);
   const [location, setLocation] = useState({});
-  //const uri = "http://192.168.1.7:8081/RegisterPage";
-  const uri = "http://192.168.43.166:8081/RegisterPage";
+  const [user,SetUser]=useState();
+  const uri = "http://192.168.1.3:8081/RegisterPage";
+  //const uri = "http://192.168.43.166:8081/RegisterPage";
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       setLocation(JSON.stringify(position)).then(() => {
@@ -98,6 +99,7 @@ export default function RegisterPage({ navigation }) {
       },
       isValid: false, //filed are respon on Manger(true) or regular user(false)
     };
+    SetUser(dataToSend);
     axios
       .post(uri, dataToSend)
       .then((responseJson) => {
@@ -141,7 +143,7 @@ export default function RegisterPage({ navigation }) {
           activeOpacity={0.5}
           onPress={() =>
             navigation.navigate("HomePage", {
-              a: userName,
+              a: user,
             })
           }
         >

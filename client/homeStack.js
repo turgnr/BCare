@@ -11,6 +11,7 @@ import infoPage from "./.expo/components/infoPage";
 import UpdateUser from "./.expo/components/manager/UpdateUser";
 import AddAssociation from "./.expo/components/manager/AddAssociation";
 import SurveyCompletedScreen from "./.expo/components/SurveyCompletedScreen";
+import ViolenceTypes from "./.expo/components/ViolenceTypes";
 import WarningSign from "./.expo/components/WarningSign";
 
 const Stack = createStackNavigator();
@@ -52,12 +53,7 @@ export function RootStack() {
       <Stack.Screen
         name="infoPage"
         component={infoPage}
-        options={{ title: "מידע" }}
-      />
-      <Stack.Screen
-        name="UpdateUser"
-        component={UpdateUser}
-        options={{ title: "עריכת משתמש" }}
+        options={{ title: "זכויות ומידע משפטי" }}
       />
       <Stack.Screen
         name="SurveyCompletedScreen"
@@ -65,9 +61,14 @@ export function RootStack() {
         options={{ title: "תוצאות" }}
       />
       <Stack.Screen
+        name="ViolenceTypes"
+        component={ViolenceTypes}
+        options={{ title: "סוגי אלימות" }}
+      />
+       <Stack.Screen
         name="WarningSign"
         component={WarningSign}
-        options={{ title: "סימני אזהרה" }}
+        options={{ title: "סוגי אלימות" }}
       />
       <Stack.Screen
         name="AddAssociation"

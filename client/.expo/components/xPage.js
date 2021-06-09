@@ -13,8 +13,8 @@ import EmergencyButton from "./EmergencyButton";
 import ReportButton from "./ReportButton";
 
 export default function xPage({ navigation }) {
- //const uri = "http://192.168.1.7:8081/HomePage";
-  const uri = "http://192.168.43.166:8081/HomePage";
+ const uri = "http://192.168.1.3:8081/HomePage";
+  //const uri = "http://192.168.43.166:8081/HomePage";
 
   return (
     <SafeAreaView style={styles.container}>
@@ -51,9 +51,10 @@ export default function xPage({ navigation }) {
         <Text style={styles.headerContainer}>המקורות</Text>
         <View style={{ backgroundColor: "white" }}>
           <Text style={{ color: "green",marginHorizontal: 5,fontSize: 22 }}>
-            משרד העבודה והרווחה
-              עמותת נעמ"ת
-             עמותת ויצו
+            משרד העבודה והרווחה{"\n"}
+              עמותת נעמ"ת{"\n"}
+             עמותת ויצו{"\n"}
+             כל זכות
           </Text>
         </View>
         <Text style={styles.headerContainer}>מי אנחנו?</Text>

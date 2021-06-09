@@ -14,6 +14,7 @@ import ReportButton from "./ReportButton";
 export default function HomePage({ navigation, route }) {
   const { a } = route.params; //the name of user are log-in
   const [Nid, setid] = useState(a.UserName ? a.UserName : a);
+  const [manager, setManager] = useState(a.isValid ? a.isValid : false);
 
   return (
     <SafeAreaView style={styles.container}>
@@ -49,6 +50,15 @@ export default function HomePage({ navigation, route }) {
       </SafeAreaView>
       <SafeAreaView>
         <Button
+          icon="alert-octagon"
+          mode="contained"
+          onPress={() => navigation.navigate("ViolenceTypes")}
+        >
+          סוגי אלימות
+        </Button>
+      </SafeAreaView>
+      <SafeAreaView>
+        <Button
           icon="information-variant"
           mode="contained"
           onPress={() => navigation.navigate("infoPage")}
@@ -56,7 +66,7 @@ export default function HomePage({ navigation, route }) {
           מידע
         </Button>
       </SafeAreaView>
-      {a.isValid ? (
+      {manager ? (
         <SafeAreaView>
           <Button
             icon="account-question"

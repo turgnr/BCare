@@ -27,8 +27,8 @@ export default function AddAssociation({ navigation }) {
   const ageInputRef = createRef();
   const addressInputRef = createRef();
   const [listOfUsers, setListOfUsers] = useState([]);
-  const uri = "http://192.168.43.166:8081/tablePage";
-  //const uri = "http://192.168.1.7:8081/tablePage";
+  //const uri = "http://192.168.43.166:8081/tablePage";
+  const uri = "http://192.168.1.3:8081/tablePage";
 
   useEffect(() => {
     axios
