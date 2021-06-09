@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { SafeAreaView, StyleSheet, Text, } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import axios from "axios";
 import { Button, TextInput } from "react-native-paper";
 import EmergencyButton from "./EmergencyButton";
 import ReportButton from "./ReportButton";
-
 
 export default function Login({ navigation }) {
   const [user, setuserName] = useState("");
@@ -21,22 +20,18 @@ export default function Login({ navigation }) {
     }
   }, [backPressedCount]);
 
- const checkFiled= () =>{
-    if(!user){
-      setErrortext('שם משתמש חסר');
+  const checkFiled = () => {
+    if (!user) {
+      setErrortext("שם משתמש חסר");
       return false;
     }
-    if(!password)
-    {
-      setErrortext('סיסמא חסרה');
-      return false; 
+    if (!password) {
+      setErrortext("סיסמא חסרה");
+      return false;
     }
     setErrortext("");
     return true;
-  }
-
-
-
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -45,7 +40,7 @@ export default function Login({ navigation }) {
         value={user}
         placeholder="הכנסי שם משתמש"
         onChangeText={(user) => setuserName(user)}
-        />
+      />
       <TextInput
         label="סיסמא"
         Type="outline"
@@ -53,67 +48,67 @@ export default function Login({ navigation }) {
         secureTextEntry
         value={password}
         onChangeText={(password) => setPass(password)}
-        />
-        {errortext != "" ? (
-              <Text style={styles.errorTextStyle}>{errortext}</Text>
-            ) : null}
-      <Button
-        icon="account-arrow-right"
-        mode="contained"
-        onPress={() => {
-          if(checkFiled())
-          {
-            console.log("GET - Login");
-            axios
-              .get(uri, {
-                params: {
-                  UserName: user,
-                  Password: password,
-                },
-              })
-              .then(function (response) {
-                if(response.status == 200)
-                {
-                  navigation.navigate("HomePage", {
-                    a: response.data.userapproved,
-                  });
-                }
-                if(response.status == 203){
-                  setErrortext("שם משתמש או סיסמא לא נכונים");
-                  setPass("");
-                  setuserName("");
-                }
-              })
-              .catch(function (error) {
-                console.log('error',error);
-              });
+      />
+      {errortext != "" ? (
+        <Text style={styles.errorTextStyle}>{errortext}</Text>
+      ) : null}
+      <View style={styles.btn}>
+        <Button
+          icon="account-arrow-right"
+          mode="contained"
+          onPress={() => {
+            if (checkFiled()) {
+              console.log("GET - Login");
+              axios
+                .get(uri, {
+                  params: {
+                    UserName: user,
+                    Password: password,
+                  },
+                })
+                .then(function (response) {
+                  if (response.status == 200) {
+                    navigation.navigate("HomePage", {
+                      a: response.data.userapproved,
+                    });
+                  }
+                  if (response.status == 203) {
+                    setErrortext("שם משתמש או סיסמא לא נכונים");
+                    setPass("");
+                    setuserName("");
+                  }
+                })
+                .catch(function (error) {
+                  console.log("error", error);
+                });
+            }
           }}
-          }
-      >
-        התחברי
-      </Button>
-      <Button
-        icon="playlist-edit"
-        mode="contained"
-        onPress={() => {
-          navigation.navigate("RegisterPage");
-        }}
-      >
-        להרשמה
-      </Button>
-      <Button
-        icon="account-arrow-right-outline"
-        mode="contained"
-        onPress={() => {
-          navigation.navigate("HomePage", {
-            a: "אורחת",
-          });
-        }}
-      >
-        אורחת
-      </Button>
-      <EmergencyButton/>
-      <ReportButton/>
+        >
+          התחברי
+        </Button>
+        <Button
+          icon="playlist-edit"
+          mode="contained"
+          onPress={() => {
+            navigation.navigate("RegisterPage");
+          }}
+        >
+          להרשמה
+        </Button>
+        <Button
+          icon="account-arrow-right-outline"
+          mode="contained"
+          onPress={() => {
+            navigation.navigate("HomePage", {
+              a: "אורחת",
+            });
+          }}
+        >
+          אורחת
+        </Button>
+      </View>
+      <EmergencyButton />
+      <ReportButton />
     </SafeAreaView>
   );
 }
@@ -123,6 +118,8 @@ const styles = StyleSheet.create({
     flex: 1,
     width: "100%",
     height: "100%",
+  },
+  btn: {
     justifyContent: "space-evenly",
   },
   errorTextStyle: {

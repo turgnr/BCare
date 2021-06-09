@@ -13,7 +13,7 @@ export default function ViolenceTypes({ navigation }) {
         <Text style={styles.warnings}>
           המידע באפליקציה נאסף ממקורות המפורטים מטה השימוש במידע באחריותך בלבד
         </Text>
-        <View style={}>
+        <View >
           <Text style={styles.headline}>אלימות כללית</Text>
           <Text style={{ color: "black", marginHorizontal: 5, fontSize: 22 }}>
             אלימות במשפחה לעיתים מתקיימת האלימות מחוץ לגבולות המשפחה ומופעלת
@@ -36,7 +36,7 @@ export default function ViolenceTypes({ navigation }) {
             צורך בטיפול מיידי !!
           </Text>
         </View>
-        <View style={}>
+        <View >
           <Text style={styles.headline}>אלימות פיזית</Text>
           <Text style={{ color: "black", marginHorizontal: 5, fontSize: 22 }}>
             האם מישהו מבני ביתך פוגע בך באופן פיזי, מכה אותך או מפעיל נגדך כוח
@@ -58,7 +58,7 @@ export default function ViolenceTypes({ navigation }) {
             חובה אלימות זו אין זו אשמתך ויש צורך בטיפול מיידי !!
           </Text>
         </View>
-        <View style={}>
+        <View >
           <Text style={styles.headline}>אלימות טכנולוגית</Text>
           <Text style={{ color: "black", marginHorizontal: 5, fontSize: 22 }}>
             נעשית בצורה מתוחכמת שאינה מותירה "עקבות". שליטה וניצול הטכנולוגיה
@@ -74,7 +74,7 @@ export default function ViolenceTypes({ navigation }) {
             אשמתך ויש צורך בטיפול מיידי !!
           </Text>
         </View>
-        <View style={}>
+        <View >
           <Text style={styles.headline}>אלימות מינית</Text>
           <Text style={{ color: "black", marginHorizontal: 5, fontSize: 22 }}>
             האם מישהו מבני ביתך פוגע בך באופן מיני, נוגע בחלקי גופך באופן לא
@@ -102,7 +102,7 @@ export default function ViolenceTypes({ navigation }) {
             חובה אלימות זו אין זו אשמתך ויש צורך בטיפול מיידי !!
           </Text>
         </View>
-        <View style={}>
+        <View >
           <Text style={styles.headline}>אלימות מילולית ו\או נפשית</Text>
           <Text style={{ color: "black", marginHorizontal: 5, fontSize: 22 }}>
             האם מישהו משפיל אותך, מרים את קולו או מאיים על חייך? האם מישהו מבודד
@@ -128,7 +128,7 @@ export default function ViolenceTypes({ navigation }) {
             זו אשמתך ויש צורך בטיפול מיידי !!
           </Text>
         </View>
-        <View style={}>
+        <View >
           <Text style={styles.headline}>אלימות כלכלית</Text>
           <Text style={{ color: "black", marginHorizontal: 5, fontSize: 22 }}>
             האם מישהו מונע ממך גישה לחשבון הבנק המשותף? האם נדרשת ממך הצדקה לכל

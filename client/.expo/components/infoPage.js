@@ -20,7 +20,7 @@ export default function infoPage({ navigation }) {
         <Text style={styles.warnings}>
           המידע באפליקציה נאסף ממקורות המפורטים מטה השימוש במידע באחריותך בלבד
         </Text>
-        <View style={}>
+        <View>
           <Text style={styles.headline}>האם את חשופה לאלימות במשפחה? </Text>
           <Text style={{ color: "black", marginHorizontal: 5, fontSize: 22 }}>
             • נפגעות אלימות במשפחה יכולות לקבל סיוע משפטי ממשרד המשפטים בהליכים
@@ -34,7 +34,7 @@ export default function infoPage({ navigation }) {
             דתיות וחרדיות נפגעות אלימות במשפחה.
           </Text>
         </View>
-        <View style={}>
+        <View >
           <Text style={styles.headline}>
             מה קורה אם את זכאית למקלט אבל לא יכולה לשהות בו (מסיבות כאלה
             ואחרות)?
@@ -43,7 +43,7 @@ export default function infoPage({ navigation }) {
             ייתכן ואת זכאית לסיוע בשכר דירה.
           </Text>
         </View>
-        <View style={}>
+        <View >
           <Text style={styles.headline}>האם נזקקת לטיפול רפואי ?</Text>
           <Text style={{ color: "black", marginHorizontal: 5, fontSize: 22 }}>
             במצבים מסוימים, נפגעות אלימות עשויים להגיע לחדרי המיון בבית החולים
@@ -51,7 +51,7 @@ export default function infoPage({ navigation }) {
             פטורות מתשלום בפנייה לחדר מיון.
           </Text>
         </View>
-        <View style={}>
+        <View >
           <Text style={styles.headline}>מהם התנאים למועמדות לקבלת סיוע ?</Text>
           <Text style={{ color: "black", marginHorizontal: 5, fontSize: 22 }}>
             הסיוע ניתן באופן חד פעמי, כאשר ישנם שני תנאים מחייבים למועמדות
@@ -59,7 +59,7 @@ export default function infoPage({ navigation }) {
             הרווחה המטפל כי לפונה קיימת תוכנית טיפול בתחום אלימות במשפחה.
           </Text>
         </View>
-        <View style={}>
+        <View >
           <Text style={styles.headline}>
             האם את מעוניינת או נאלצת להיעדר מעבודתך ?
           </Text>
@@ -82,7 +82,7 @@ export default function infoPage({ navigation }) {
             ולמשוך חלק מהסכומים שחסכת בחיסכון הפסיוני ללא תשלום מס.
           </Text>
         </View>
-        <View style={}>
+        <View >
           <Text style={styles.headline}>האם את מקבלת הבטחת הכנסה ?</Text>
           <Text style={{ color: "black", marginHorizontal: 5, fontSize: 22 }}>
             אם לא, ייתכן שתהיי זכאית לגמלת הבטחת הכנסה, נשים תושבות ישראל
@@ -90,14 +90,14 @@ export default function infoPage({ navigation }) {
             לבדיקת זכאותן להבטחת הכנסה מביטוח לאומי.
           </Text>
         </View>
-        <View style={}>
+        <View >
           <Text style={styles.headline}>מענק לימודים לילדי המשפחה.</Text>
           <Text style={{ color: "black", marginHorizontal: 5, fontSize: 22 }}>
             נשים השוהות במקלט לנפגעות אלימות זכאיות לקבל מענק לימודים מטעם
             הביטוח הלאומי אשר מסייע בהשתתפות הוצאות הלימודים של ילדי המשפחה.
           </Text>
         </View>
-        <View style={}>
+        <View >
           <Text style={styles.headline}>
             מענק הסתגלות לנשים ששהו במקלט לנפגעות אלימות: מי זכאית לקבלת מענק?
           </Text>
@@ -116,7 +116,7 @@ export default function infoPage({ navigation }) {
             חצי שנה מהיום שבו נדחתה בקשתך לקבלת המענק.
           </Text>
         </View>
-        <View style={}>
+        <View >
           <Text style={styles.headline}>חוק חובת היידוע</Text>
           <Text style={{ color: "black", marginHorizontal: 5, fontSize: 22 }}>
             ליידע אדם על אפשרותו לפנות לתחנת משטרה, למחלקה לשירותים חברתיים או
