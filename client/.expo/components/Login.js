@@ -35,6 +35,7 @@ export default function Login({ navigation }) {
 
   return (
     <SafeAreaView style={styles.container}>
+      <View>
       <TextInput
         label="שם משתמש"
         value={user}
@@ -52,8 +53,10 @@ export default function Login({ navigation }) {
       {errortext != "" ? (
         <Text style={styles.errorTextStyle}>{errortext}</Text>
       ) : null}
-      <View style={styles.btn}>
+      </View>
+      <View style={styles.btn1}>
         <Button
+        style={styles.btn}
           icon="account-arrow-right"
           mode="contained"
           onPress={() => {
@@ -87,6 +90,7 @@ export default function Login({ navigation }) {
           התחברי
         </Button>
         <Button
+        style={styles.btn}
           icon="playlist-edit"
           mode="contained"
           onPress={() => {
@@ -96,6 +100,7 @@ export default function Login({ navigation }) {
           להרשמה
         </Button>
         <Button
+        style={styles.btn}
           icon="account-arrow-right-outline"
           mode="contained"
           onPress={() => {
@@ -119,8 +124,18 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
   },
+  btn1:{
+justifyContent:'space-between'
+  },
   btn: {
-    justifyContent: "space-evenly",
+    borderWidth: 0,
+    height: 40,
+    alignItems: "center",
+    borderRadius: 30,
+    marginLeft: 35,
+    marginRight: 35,
+    marginTop: 20,
+    marginBottom: 20,
   },
   errorTextStyle: {
     color: "red",

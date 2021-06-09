@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
   },
   attention: {
     color: "red",
-    fontSize: 10,
+    fontSize: 20,
     textAlign: "center",
     marginHorizontal: 5,
     elevation: 1,

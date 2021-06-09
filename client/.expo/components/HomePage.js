@@ -63,7 +63,7 @@ export default function HomePage({ navigation, route }) {
           mode="contained"
           onPress={() => navigation.navigate("infoPage")}
         >
-          מידע
+          זכויות ומידע משפטי
         </Button>
       </SafeAreaView>
       {manager ? (

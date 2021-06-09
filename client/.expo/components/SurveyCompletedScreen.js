@@ -49,7 +49,7 @@ export default class SurveyCompletedScreen extends Component {
               אחריותך בלבד ונועד לצורכי הדגמה :על פי תוצאות השאלון הינך
             </Text>
             {answers.res1 > 3 ? (
-              <Text style={styles.questionText}>אלימות כל שהיא</Text>
+              <Text style={styles.questionText}>נתונה תחת אלימות כל שהיא</Text>
             ) : null}
             {answers.res1 > 3 && answers.res1 < 9 ? (
               <Text style={styles.questionText}>ובסכנה</Text>
@@ -58,19 +58,19 @@ export default class SurveyCompletedScreen extends Component {
               <Text style={styles.questionText}>ובסכנה גבוהה</Text>
             ) : null}
             {answers.res2 >= 5 ? (
-              <Text style={styles.questionText}>אלימות פיזית</Text>
+              <Text style={styles.questionText}>וגם אלימות פיזית</Text>
             ) : null}
             {answers.res3 > 3 ? (
-              <Text style={styles.questionText}>אלימות טכנולוגית</Text>
+              <Text style={styles.questionText}>וגם אלימות טכנולוגית</Text>
             ) : null}
             {answers.res4 >= 5 ? (
-              <Text style={styles.questionText}>אלימות מינית</Text>
+              <Text style={styles.questionText}>וגם אלימות מינית</Text>
             ) : null}
             {answers.res5 >= 5 ? (
-              <Text style={styles.questionText}>אלימות נפשית\מילולית</Text>
+              <Text style={styles.questionText}>וגם אלימות נפשית\מילולית</Text>
             ) : null}
             {answers.res6 > 4 ? (
-              <Text style={styles.questionText}>אלימות כלכלית</Text>
+              <Text style={styles.questionText}>וגם אלימות כלכלית</Text>
             ) : null}
             {answers.res1 < 3 &&
             answers.res2 < 6 &&
