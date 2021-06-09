@@ -777,7 +777,7 @@ export default class QuestionPage extends Component {
         elevation: 5,
       },
       headerTintColor: "#fff",
-      headerTitle: "Sample Survey",
+      headerTitle: "שאלון",
       headerTitleStyle: {
         flex: 1,
       },
@@ -860,6 +860,7 @@ export default class QuestionPage extends Component {
     }  }
 
   renderPreviousButton(onPress, enabled) {
+    console.log(this.state);
     return (
       <View
         style={{ flexGrow: 1, maxWidth: 100, marginTop: 10, marginBottom: 10 }}

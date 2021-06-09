@@ -202,6 +202,12 @@ export default function RegisterPage({ navigation }) {
               autoCapitalize="sentences"
               returnKeyType="next"
               blurOnSubmit={false}
+              onEndEditing={() => {
+                let flagError = false;
+                if (isNaN(Userpass) || !(Userpass.length === 8))
+                  flagError = true;
+                setErrortext(flagError ? "סיסמא חוקית בעלת 8 תווים" : "");
+              }}
             />
           </View>
           <View style={styles.SectionStyle}>

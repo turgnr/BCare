@@ -68,7 +68,7 @@ export function RootStack() {
        <Stack.Screen
         name="WarningSign"
         component={WarningSign}
-        options={{ title: "סוגי אלימות" }}
+        options={{ title: "סימני אזהרה והתגוננות" }}
       />
       <Stack.Screen
         name="AddAssociation"
