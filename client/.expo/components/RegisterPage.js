@@ -195,7 +195,7 @@ export default function RegisterPage({ navigation }) {
           <View style={styles.SectionStyle}>
             <TextInput
               style={styles.inputStyle}
-              onChangeText={(Userpass) => setUserPass(Userpass)}
+              onChangeText={(UserPass) => setUserPass(UserPass)}
               underlineColorAndroid="#f000"
               placeholder="הכנס סיסמא"
               placeholderTextColor="#8b9cb5"
@@ -204,7 +204,7 @@ export default function RegisterPage({ navigation }) {
               blurOnSubmit={false}
               onEndEditing={() => {
                 let flagError = false;
-                if (isNaN(Userpass) || !(Userpass.length === 8))
+                if (isNaN(UserPass) || !(UserPass.length === 8))
                   flagError = true;
                 setErrortext(flagError ? "סיסמא חוקית בעלת 8 תווים" : "");
               }}
