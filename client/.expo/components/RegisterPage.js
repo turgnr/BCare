@@ -204,7 +204,7 @@ export default function RegisterPage({ navigation }) {
               blurOnSubmit={false}
               onEndEditing={() => {
                 let flagError = false;
-                if (isNaN(UserPass) || !(UserPass.length === 8))
+                if (isNaN(userPass) || !(userPass.length === 8))
                   flagError = true;
                 setErrortext(flagError ? "סיסמא חוקית בעלת 8 תווים" : "");
               }}
